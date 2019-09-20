@@ -82,7 +82,7 @@ public class NumToChar {
             }
             levelTriples--;
         }
-        //возврат результата
+        rez.deleteCharAt(0);
         return rez.toString();
     }
 }
