@@ -1,6 +1,6 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-
+//Main класс
 public class Program {
     public static void main(String[] args){
         long inputNum;

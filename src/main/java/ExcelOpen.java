@@ -4,7 +4,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-
+//Класс в котором происходит открытие "Справочника" из Excel и заполнение массива с информацией из него.
 public class ExcelOpen {
     public String[] excelArray() throws IOException {
         String[] directoryArray;

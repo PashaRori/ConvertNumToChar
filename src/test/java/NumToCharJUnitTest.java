@@ -2,7 +2,7 @@ import org.junit.jupiter.api.Test;
 import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.*;
-
+//Тест класс для проведения юнит тестов
 class NumToCharJUnitTest {
 
     @Test

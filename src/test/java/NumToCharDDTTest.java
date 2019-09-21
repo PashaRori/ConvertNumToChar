@@ -9,7 +9,7 @@ import java.io.IOException;
 
 import static org.apache.poi.ss.usermodel.CellType.NUMERIC;
 import static org.junit.jupiter.api.Assertions.*;
-
+//Тест класс для проведения тестов ДДТ
 public class NumToCharDDTTest {
 
     @Test(dataProvider = "datePro")

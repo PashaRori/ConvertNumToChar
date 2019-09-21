@@ -1,7 +1,7 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-
+//Класс который проводит преобразование числа в текстовый формат
 public class NumToChar {
     String convertNumToString(long numeric) throws IOException {
         NamesArray namesArray = new NamesArray();
