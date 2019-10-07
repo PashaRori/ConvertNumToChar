@@ -14,7 +14,7 @@ public class NumToCharDDTTest {
 
     @Test(dataProvider = "datePro")
     public void convertNumToString(String inputTrueLong, String inputThreat) throws IOException {
-        NumToChar numToChar = new NumToChar();
+        NumberToChar numToChar = new NumberToChar();
         String inputTrue = numToChar.convertNumToString(Long.valueOf(inputTrueLong));
         assertEquals(inputThreat, inputTrue);
     }

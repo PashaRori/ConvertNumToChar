@@ -11,7 +11,7 @@ public class Program {
             BufferedReader br = new BufferedReader(in);
             String readText = br.readLine();
             inputNum = Long.valueOf(readText);
-            NumToChar numToChar = new NumToChar();
+            NumberToChar numToChar = new NumberToChar();
             String rez = numToChar.convertNumToString(inputNum);
             System.out.println(rez);
         }
