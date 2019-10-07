@@ -1,15 +1,15 @@
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
-//Класс который проводит преобразование числа в текстовый формат
-public class NumberToChar {
-    String convertNumToString(long numeric) throws IOException {
+
+public class NumberToWords {
+    String convertNumberToWords(long numeric) throws IOException {
         NamesArray namesArray = new NamesArray();
         String[] stringTo99 = namesArray.arrayTo99();
         String[] string100To900 = namesArray.array100To900();
         String[] string1000ToInfinity = namesArray.array1000ToInfinity();
         StringBuilder rez = new StringBuilder();
-        //получения количества и разбиение на 3 числа
+
         long numericConverted = Math.abs(numeric);
         int quantumTriples = 0;
         ArrayList segments = new ArrayList();
@@ -22,7 +22,7 @@ public class NumberToChar {
         segments.add(numericConverted);
         Collections.reverse(segments);
         int levelTriples = segments.size() - 1;
-        //Замена чисел на слова
+
         if (numeric<0)
         {
             rez.append(" минус");
@@ -31,7 +31,7 @@ public class NumberToChar {
         String hundredString, dozensString;
         for (int i = 0; i < segments.size(); i++) {
             numericNew = (int) Integer.valueOf((segments.get(i).toString()));
-            //заполнение сотен
+
             hundredInteger = numericNew / 100;
             if (hundredInteger == 0) {
                 hundredString = "";
@@ -41,14 +41,14 @@ public class NumberToChar {
                 dozensString = "";
             } else dozensString = " " + stringTo99[desInt];
             edenInt = numericNew % 10;
-            //заполнение сотен
+
             if (levelTriples == 0) {
                 if (hundredInteger == 0 && desInt == 0) {
                     if (quantumTriples == 0) rez.append(hundredString).append(dozensString);
                 } else rez.append(hundredString).append(dozensString);
             }
             if (hundredInteger != 0 || desInt != 0 && levelTriples > 0) {
-                //заполнение для тысячи
+
                 if (levelTriples == 1) {
                     if (desInt > 10 && desInt < 20) {
                         rez.append(hundredString).append(dozensString).append(" ").append(string1000ToInfinity[levelTriples - 1]);
@@ -67,7 +67,7 @@ public class NumberToChar {
                         }
                     }
                 }
-                //заполнение для милионов и больше
+
                 if (levelTriples > 1) {
                     if (edenInt == 1) {
                         rez.append(hundredString).append(dozensString).append(" ").append(string1000ToInfinity[levelTriples - 1]);

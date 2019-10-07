@@ -1,7 +1,7 @@
 import java.io.IOException;
 
 import static java.lang.System.arraycopy;
-//Класс в котором происходит заполнение массивов с текстом. Для использования их при сопостовлении с введённым числом
+
 public class NamesArray {
     public String[] arrayTo99() throws IOException {
         ExcelOpen excelOpens = new ExcelOpen();

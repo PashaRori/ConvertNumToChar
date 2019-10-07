@@ -1,6 +1,6 @@
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DateUtil;
-//Определение и последующее приобразование типа ячейки Excel в String
+
 public class ExcelCellString {
     public static String getCellText(Cell cell)
     {

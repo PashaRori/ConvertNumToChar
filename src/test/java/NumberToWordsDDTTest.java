@@ -9,13 +9,13 @@ import java.io.IOException;
 
 import static org.apache.poi.ss.usermodel.CellType.NUMERIC;
 import static org.junit.jupiter.api.Assertions.*;
-//Тест класс для проведения тестов ДДТ
-public class NumToCharDDTTest {
+
+public class NumberToWordsDDTTest {
 
     @Test(dataProvider = "datePro")
-    public void convertNumToString(String inputTrueLong, String inputThreat) throws IOException {
-        NumberToChar numToChar = new NumberToChar();
-        String inputTrue = numToChar.convertNumToString(Long.valueOf(inputTrueLong));
+    public void convertNumberToWords(String inputTrueLong, String inputThreat) throws IOException {
+        NumberToWords numberToWords = new NumberToWords();
+        String inputTrue = numberToWords.convertNumberToWords(Long.valueOf(inputTrueLong));
         assertEquals(inputThreat, inputTrue);
     }
 
