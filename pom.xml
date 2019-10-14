@@ -35,8 +35,20 @@
             <artifactId>poi-ooxml</artifactId>
             <version>4.1.0</version>
         </dependency>
+        <dependency>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>sonar-maven-plugin</artifactId>
+            <version>RELEASE</version>
+            <type>pom</type>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>RELEASE</version>
+        </dependency>
     </dependencies>
     <properties>
+        <sonar.host.url> http://localhost:9000 </sonar.host.url>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
