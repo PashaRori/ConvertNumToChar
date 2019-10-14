@@ -11,7 +11,7 @@ public class Main {
             BufferedReader br = new BufferedReader(in);
             String inputNum = br.readLine();
             ConvertNumberToRussianWord convertNumberToRussianWord = new ConvertNumberToRussianWord(inputNum,"Rus");
-            String rez = convertNumberToRussianWord.createFinalRussianWord();
+            String rez = convertNumberToRussianWord.createFinalWord();
             System.out.println(rez);
         } catch (Exception e) {
         }

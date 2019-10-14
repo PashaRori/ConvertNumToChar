@@ -16,7 +16,7 @@ public class ConvertNumberToRussianWord extends ConvertNumberToWordOOP {
         this.languageConvert = languageConvert;
     }
 
-    public String createFinalRussianWord() {
+    public String createFinalWord() {
         StringBuilder conversionResult = new StringBuilder();
         try {
             String positiveConversionNumber = CreateWordConversionNumberWork.testNegativityNumber(conversionNumber);

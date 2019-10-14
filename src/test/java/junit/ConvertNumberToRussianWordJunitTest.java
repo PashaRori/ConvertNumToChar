@@ -30,13 +30,13 @@ class ConvertNumberToRussianWordJunitTest {
         String language = "Rus";
         standardWordsOneHundred = "сто";
         convertedOneHundred = new ConvertNumberToRussianWord("100", language);
-        wordAfterConvertedOneHundred = convertedOneHundred.createFinalRussianWord();
+        wordAfterConvertedOneHundred = convertedOneHundred.createFinalWord();
         convertedTen = new ConvertNumberToRussianWord("10", language);
-        wordAfterConvertedTen = convertedTen.createFinalRussianWord();
+        wordAfterConvertedTen = convertedTen.createFinalWord();
         convertOneHundredWithZerosAtBegin = new ConvertNumberToRussianWord("00000100", language);
-        wordAfterConvertedOneHundredWithZerosAtBegin = convertOneHundredWithZerosAtBegin.createFinalRussianWord();
+        wordAfterConvertedOneHundredWithZerosAtBegin = convertOneHundredWithZerosAtBegin.createFinalWord();
         convertOneMillionOne = new ConvertNumberToRussianWord("1000001", language);
-        wordAfterConvertedOneMillionOne = convertOneMillionOne.createFinalRussianWord();
+        wordAfterConvertedOneMillionOne = convertOneMillionOne.createFinalWord();
         convertNullReceived = new ConvertNumberToRussianWord(null, language);
         convertTextReceived = new ConvertNumberToRussianWord("Good morning!!!", language);
         convertOutOfExcelDirectory = new ConvertNumberToRussianWord("1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890", language);
@@ -76,21 +76,21 @@ class ConvertNumberToRussianWordJunitTest {
     @Test
     void checkExceptionByNullValue() {
         assertThrows(NullPointerException.class, () -> {
-            convertNullReceived.createFinalRussianWord();
+            convertNullReceived.createFinalWord();
         });
     }
 
     @Test
     void checkExceptionOfNotNumberValue() {
         assertThrows(NumberFormatException.class, () -> {
-            convertTextReceived.createFinalRussianWord();
+            convertTextReceived.createFinalWord();
         });
     }
 
     @Test
     void checkExplosionOutOfExcelDirectory() {
         assertThrows(ArrayIndexOutOfBoundsException.class, () -> {
-            convertOutOfExcelDirectory.createFinalRussianWord();
+            convertOutOfExcelDirectory.createFinalWord();
         });
     }
 }

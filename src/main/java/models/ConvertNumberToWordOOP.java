@@ -1,5 +1,5 @@
 package models;
 
 public abstract class ConvertNumberToWordOOP {
-    //abstract String make();
+    abstract public String createFinalWord();
 }

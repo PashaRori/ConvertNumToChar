@@ -23,7 +23,7 @@ public class ConvertNumberToRussianWordDdtTestOnRussian {
     @Test(dataProvider = "getValuesFromExcel")
     public void compareNumberConvertedToWordsAndWords(String numberConvertedToWords, String referenceWords){
         ConvertNumberToRussianWord convertNumberToRussianWord = new ConvertNumberToRussianWord(numberConvertedToWords,"Rus");
-        String convertedValueOfNumberToWords = convertNumberToRussianWord.createFinalRussianWord();
+        String convertedValueOfNumberToWords = convertNumberToRussianWord.createFinalWord();
         assertEquals(referenceWords, convertedValueOfNumberToWords);
     }
 
