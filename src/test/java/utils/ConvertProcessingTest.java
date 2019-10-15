@@ -121,6 +121,7 @@ class ConvertProcessingTest {
         });
     }
 
+
     @Test
     public void checkExplosionValueWithNumberWhoNotNumberFormatOnEnglishMethod() {
         numberSegment = "MMM";
