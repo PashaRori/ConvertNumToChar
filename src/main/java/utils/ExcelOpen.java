@@ -2,6 +2,8 @@ package utils;
 
 import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.DateUtil;
 import org.apache.poi.ss.usermodel.Workbook;
 
 import java.io.FileInputStream;
@@ -13,21 +15,49 @@ public class ExcelOpen {
 
     private static final Logger logger = Logger.getLogger(ExcelOpen.class);
 
-    public static String providingDocumentName(String languageConvert) {
+    private static String getDocumentName(String languageConvert) {
         String documentName;
+
         if (languageConvert.equals("Rus")) {
-            documentName = "DirectoryRusWordsNumber.xls";
+            documentName = "DirectoryRussianWordsNumber.xls";
         } else {
-            documentName = "DirectoryEngWordsNumber.xls";
+            documentName = "DirectoryEnglishWordsNumber.xls";
         }
         return documentName;
     }
 
-    public static Workbook openFile(String languageConvert) {
+    private static String convertCell(Cell cell) {
+        String resultConvert = "";
+
+        switch (cell.getCellType()) {
+            case STRING:
+                resultConvert = cell.getRichStringCellValue().getString();
+                break;
+            case NUMERIC:
+                if (DateUtil.isCellDateFormatted(cell)) {
+                    resultConvert = cell.getDateCellValue().toString();
+                } else {
+                    resultConvert = Double.toString(cell.getNumericCellValue());
+                }
+                break;
+            case BOOLEAN:
+                resultConvert = Boolean.toString(cell.getBooleanCellValue());
+                break;
+            case FORMULA:
+                resultConvert = cell.getCellFormula();
+                break;
+            default:
+                break;
+        }
+        return resultConvert;
+    }
+
+    private static Workbook openFile(String languageConvert) {
         ClassLoader classLoader = ExcelOpen.class.getClassLoader();
         Workbook workbook = null;
-        try{
-            FileInputStream  fileInputStream = new FileInputStream(Objects.requireNonNull(classLoader.getResource(providingDocumentName(languageConvert))).getFile());
+
+        try {
+            FileInputStream fileInputStream = new FileInputStream(Objects.requireNonNull(classLoader.getResource(getDocumentName(languageConvert))).getFile());
             workbook = new HSSFWorkbook(fileInputStream);
             fileInputStream.close();
         } catch (FileNotFoundException e) {
@@ -38,12 +68,13 @@ public class ExcelOpen {
         return workbook;
     }
 
-    public static String[] fillArrayWithValues(String directoryExcelName) {
-        Workbook workbook = openFile(directoryExcelName);
+    public static String[] fillArrayWithValues(String languageConvert) {
+        Workbook workbook = openFile(languageConvert);
         int quantityRow = workbook.getSheetAt(0).getLastRowNum() + 1;
         String[] resultArray = new String[quantityRow];
+
         for (int i = 0; i < quantityRow; i++) {
-            resultArray[i] = ExcelCellValuesToString.convertCell(workbook.getSheetAt(0).getRow(i).getCell(0));
+            resultArray[i] = convertCell(workbook.getSheetAt(0).getRow(i).getCell(0));
         }
         return resultArray;
     }

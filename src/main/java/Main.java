@@ -1,17 +1,18 @@
-import services.ConvertNumberToRussianWord;
+import model.ConvertNumberToWord;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class Main {
+
     public static void main(String[] args) {
         System.out.println("Input number: ");
         try {
             InputStreamReader in = new InputStreamReader(System.in);
             BufferedReader br = new BufferedReader(in);
             String inputNum = br.readLine();
-            ConvertNumberToRussianWord convertNumberToRussianWord = new ConvertNumberToRussianWord(inputNum,"Rus");
-            String rez = convertNumberToRussianWord.createFinalWord();
+            ConvertNumberToWord numberToRussianWord = new ConvertNumberToWord(inputNum,"Eng");
+            String rez = numberToRussianWord.createFinalWord();
             System.out.println(rez);
         } catch (Exception e) {
         }

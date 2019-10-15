@@ -1,24 +1,25 @@
 package utils;
 
 import static java.lang.System.arraycopy;
+import static utils.ExcelOpen.fillArrayWithValues;
 
-public class CreateArraysWithNumbersInWordFormat {
+public class TextDataParsing {
 
-    public static String[] fromZeroToTen(String languageConvert) {
+    private static String[] fromZeroToTen(String languageConvert) {
         String[] arrayFromZeroToTen = new String[10];
-        arraycopy(ExcelOpen.fillArrayWithValues(languageConvert), 0, arrayFromZeroToTen, 0, 10);
+        arraycopy(fillArrayWithValues(languageConvert), 0, arrayFromZeroToTen, 0, 10);
         return arrayFromZeroToTen;
     }
 
-    public static String[] fromZeroToTwenty(String languageConvert) {
+    private static String[] fromZeroToTwenty(String languageConvert) {
         String[] arrayFromZeroToTwenty = new String[20];
-        arraycopy(ExcelOpen.fillArrayWithValues(languageConvert), 0, arrayFromZeroToTwenty, 0, 20);
+        arraycopy(fillArrayWithValues(languageConvert), 0, arrayFromZeroToTwenty, 0, 20);
         return arrayFromZeroToTwenty;
     }
 
-    public static String[] fromTwentyToNinety(String languageConvert) {
+    private static String[] fromTwentyToNinety(String languageConvert) {
         String[] arrayFromTwentyToNinety = new String[8];
-        arraycopy(ExcelOpen.fillArrayWithValues(languageConvert), 20, arrayFromTwentyToNinety, 0, 8);
+        arraycopy(fillArrayWithValues(languageConvert), 20, arrayFromTwentyToNinety, 0, 8);
         return arrayFromTwentyToNinety;
     }
 
@@ -45,12 +46,12 @@ public class CreateArraysWithNumbersInWordFormat {
 
     public static String[] fromOneHundredToOneThousand(String languageConvert) {
         String[] arrayFromOneHundredToNineHundred = new String[9];
-        arraycopy(ExcelOpen.fillArrayWithValues(languageConvert), 28, arrayFromOneHundredToNineHundred, 0, 9);
+        arraycopy(fillArrayWithValues(languageConvert), 28, arrayFromOneHundredToNineHundred, 0, 9);
         return arrayFromOneHundredToNineHundred;
     }
 
     public static String[] fromOneThousandToMaximumAvailableNumber(String languageConvert) {
-        String[] arrayFromExcelFile = ExcelOpen.fillArrayWithValues(languageConvert);
+        String[] arrayFromExcelFile = fillArrayWithValues(languageConvert);
         int sizeQuantityRowExcelFile = arrayFromExcelFile.length;
         String[] arrayFromOneThousandToMaximumAvailableNumber = new String[sizeQuantityRowExcelFile - 37];
         arraycopy(arrayFromExcelFile, 37, arrayFromOneThousandToMaximumAvailableNumber, 0, sizeQuantityRowExcelFile - 37);
