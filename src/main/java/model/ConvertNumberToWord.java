@@ -47,6 +47,8 @@ public class ConvertNumberToWord {
             }
         } catch (NumberFormatException e) {
             LOGGER.error("Not number");
+        } catch (NullPointerException e) {
+            LOGGER.error("Null Exception");
         }
 
         conversionResult.deleteCharAt(0);
