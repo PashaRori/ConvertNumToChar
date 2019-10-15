@@ -26,22 +26,16 @@ public class ConvertNumberToWord {
             final String positiveConversionNumber = checkNegativityNumber(conversionNumber);
 
             if (!conversionNumber.equals(positiveConversionNumber)) {
-                if (languageConvert.equals("Rus")) {
-                    conversionResult.append(" минус");
-                } else {
-                    conversionResult.append(" minus");
-                }
+                conversionResult.append((languageConvert.equals("Rus"))?" минус":" minus");
             }
 
             List<String> numberSegments = numberSegments(positiveConversionNumber);
             int quantityOfNumberClasses = numberSegments.size() - 1;
 
             for (String numberSegment : numberSegments) {
-                if (languageConvert.equals("Rus")) {
-                    conversionResult.append(createOnRussian(numberSegment, quantityOfNumberClasses, languageConvert));
-                } else {
-                    conversionResult.append(createOnEnglish(numberSegment, quantityOfNumberClasses, languageConvert));
-                }
+                conversionResult.append((languageConvert.equals("Rus"))?
+                        createOnRussian(numberSegment, quantityOfNumberClasses, languageConvert):
+                        createOnEnglish(numberSegment, quantityOfNumberClasses, languageConvert));
 
                 quantityOfNumberClasses--;
             }

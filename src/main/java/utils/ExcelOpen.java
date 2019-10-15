@@ -16,14 +16,7 @@ public class ExcelOpen {
     private static final Logger logger = Logger.getLogger(ExcelOpen.class);
 
     private static String getDocumentName(String languageConvert) {
-        String documentName;
-
-        if (languageConvert.equals("Rus")) {
-            documentName = "DirectoryRussianWordsNumber.xls";
-        } else {
-            documentName = "DirectoryEnglishWordsNumber.xls";
-        }
-        return documentName;
+        return ((languageConvert.equals("Rus")) ? "DirectoryRussianWordsNumber.xls" : "DirectoryEnglishWordsNumber.xls");
     }
 
     private static String convertCell(Cell cell) {

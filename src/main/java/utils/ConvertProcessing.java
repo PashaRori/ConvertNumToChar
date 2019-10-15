@@ -51,24 +51,12 @@ public class ConvertProcessing {
 
     private static String forHundred(String languageConvert) {
         String[] arrayFromOneHundredToNineHundred = TextDataParsing.fromOneHundredToOneThousand(languageConvert);
-        String hundredOfWords;
-        if (hundredOfNumber == 0) {
-            hundredOfWords = "";
-        } else {
-            hundredOfWords = " " + arrayFromOneHundredToNineHundred[hundredOfNumber - 1];
-        }
-        return hundredOfWords;
+        return ((hundredOfNumber == 0) ? "" : " " + arrayFromOneHundredToNineHundred[hundredOfNumber - 1]);
     }
 
     private static String forDozen(String languageConvert) {
         String[] arrayFromZeroToOneHundred = TextDataParsing.fromZeroToOneHundred(languageConvert);
-        String dozenOfWords;
-        if (hundredOfNumber > 0 && dozenOfNumber == 0) {
-            dozenOfWords = "";
-        } else {
-            dozenOfWords = " " + arrayFromZeroToOneHundred[dozenOfNumber];
-        }
-        return dozenOfWords;
+        return ((hundredOfNumber > 0 && dozenOfNumber == 0) ? "" : " " + arrayFromZeroToOneHundred[dozenOfNumber]);
     }
 
     private static StringBuilder forHundredEndingOnRussian(int sizeInputNumber) {
@@ -92,7 +80,7 @@ public class ConvertProcessing {
                 hundredEnding.append(hundredFromWords).append(dozenFromWords);
             }
         } else {
-            if(dozenOfNumber != 0) {
+            if (dozenOfNumber != 0) {
                 hundredEnding.append(hundredFromWords).append(" and").append(dozenFromWords);
             } else {
                 hundredEnding.append(hundredFromWords).append(dozenFromWords);
@@ -104,21 +92,22 @@ public class ConvertProcessing {
     private static StringBuilder forThousandEndingOnRussian(int quantityOfNumberClasses, String languageConvert) {
         StringBuilder thousandEnding = new StringBuilder();
         String[] arrayFromOneThousandToMaximumAvailableNumber = TextDataParsing.fromOneThousandToMaximumAvailableNumber(languageConvert);
+        final String valueFromArray = arrayFromOneThousandToMaximumAvailableNumber[quantityOfNumberClasses - 1];
 
         if (dozenOfNumber > 10 && dozenOfNumber < 20) {
-            thousandEnding.append(hundredFromWords).append(dozenFromWords).append(" ").append(arrayFromOneThousandToMaximumAvailableNumber[quantityOfNumberClasses - 1]);
+            thousandEnding.append(hundredFromWords).append(dozenFromWords).append(" ").append(valueFromArray);
         } else {
             if (unitOfNumber == 1) {
-                thousandEnding.append(hundredFromWords).append(" одна ").append(arrayFromOneThousandToMaximumAvailableNumber[quantityOfNumberClasses - 1]).append("а");
+                thousandEnding.append(hundredFromWords).append(" одна ").append(valueFromArray).append("а");
             }
             if (unitOfNumber == 2) {
-                thousandEnding.append(hundredFromWords).append(" две ").append(arrayFromOneThousandToMaximumAvailableNumber[quantityOfNumberClasses - 1]).append("и");
+                thousandEnding.append(hundredFromWords).append(" две ").append(valueFromArray).append("и");
             }
             if (unitOfNumber > 2 && unitOfNumber < 5) {
-                thousandEnding.append(hundredFromWords).append(dozenFromWords).append(" ").append(arrayFromOneThousandToMaximumAvailableNumber[quantityOfNumberClasses - 1]).append("и");
+                thousandEnding.append(hundredFromWords).append(dozenFromWords).append(" ").append(valueFromArray).append("и");
             }
             if (unitOfNumber >= 5 || unitOfNumber == 0) {
-                thousandEnding.append(hundredFromWords).append(dozenFromWords).append(" ").append(arrayFromOneThousandToMaximumAvailableNumber[quantityOfNumberClasses - 1]);
+                thousandEnding.append(hundredFromWords).append(dozenFromWords).append(" ").append(valueFromArray);
             }
         }
         return thousandEnding;
@@ -127,18 +116,19 @@ public class ConvertProcessing {
     private static StringBuilder forExponentialNumberEndingOnRussian(int quantityOfNumberClasses, String languageConvert) {
         StringBuilder exponentialNumberEnding = new StringBuilder();
         String[] arrayFromOneThousandToMaximumAvailableNumber = TextDataParsing.fromOneThousandToMaximumAvailableNumber(languageConvert);
+        final String valueFromArray = arrayFromOneThousandToMaximumAvailableNumber[quantityOfNumberClasses - 1];
 
         if (dozenOfNumber > 10 && dozenOfNumber < 20) {
-            exponentialNumberEnding.append(hundredFromWords).append(dozenFromWords).append(" ").append(arrayFromOneThousandToMaximumAvailableNumber[quantityOfNumberClasses - 1]).append("ов");
+            exponentialNumberEnding.append(hundredFromWords).append(dozenFromWords).append(" ").append(valueFromArray).append("ов");
         } else {
             if (unitOfNumber == 1) {
-                exponentialNumberEnding.append(hundredFromWords).append(dozenFromWords).append(" ").append(arrayFromOneThousandToMaximumAvailableNumber[quantityOfNumberClasses - 1]);
+                exponentialNumberEnding.append(hundredFromWords).append(dozenFromWords).append(" ").append(valueFromArray);
             }
             if (unitOfNumber > 1 && unitOfNumber < 5) {
-                exponentialNumberEnding.append(hundredFromWords).append(dozenFromWords).append(" ").append(arrayFromOneThousandToMaximumAvailableNumber[quantityOfNumberClasses - 1]).append("а");
+                exponentialNumberEnding.append(hundredFromWords).append(dozenFromWords).append(" ").append(valueFromArray).append("а");
             }
             if (unitOfNumber >= 5 || unitOfNumber == 0) {
-                exponentialNumberEnding.append(hundredFromWords).append(dozenFromWords).append(" ").append(arrayFromOneThousandToMaximumAvailableNumber[quantityOfNumberClasses - 1]).append("ов");
+                exponentialNumberEnding.append(hundredFromWords).append(dozenFromWords).append(" ").append(valueFromArray).append("ов");
             }
         }
         return exponentialNumberEnding;
