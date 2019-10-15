@@ -92,7 +92,11 @@ public class ConvertProcessing {
                 hundredEnding.append(hundredFromWords).append(dozenFromWords);
             }
         } else {
-            hundredEnding.append(hundredFromWords).append(" and").append(dozenFromWords);
+            if(dozenOfNumber != 0) {
+                hundredEnding.append(hundredFromWords).append(" and").append(dozenFromWords);
+            } else {
+                hundredEnding.append(hundredFromWords).append(dozenFromWords);
+            }
         }
         return hundredEnding;
     }

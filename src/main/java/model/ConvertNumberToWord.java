@@ -22,7 +22,7 @@ public class ConvertNumberToWord {
     public String createFinalWord() {
         StringBuilder conversionResult = new StringBuilder();
 
-        try {
+        //try {
             final String positiveConversionNumber = checkNegativityNumber(conversionNumber);
 
             if (!conversionNumber.equals(positiveConversionNumber)) {
@@ -45,11 +45,11 @@ public class ConvertNumberToWord {
 
                 quantityOfNumberClasses--;
             }
-        } catch (NumberFormatException e) {
+        /*} catch (NumberFormatException e) {
             LOGGER.error("Not number");
         } catch (NullPointerException e) {
             LOGGER.error("Null Exception");
-        }
+        }*/
 
         conversionResult.deleteCharAt(0);
         return conversionResult.toString();

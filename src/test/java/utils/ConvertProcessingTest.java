@@ -99,7 +99,7 @@ class ConvertProcessingTest {
         String actualNumber1 = actualNumber.toString();
         assertEquals(expectedNumber, actualNumber1);
     }
-/*
+
     @Test
     public void compareValueOneHundredWithThatEnglishWord() {
         numberSegment = "100";
@@ -109,7 +109,7 @@ class ConvertProcessingTest {
         actualNumber = ConvertProcessing.createOnEnglish(numberSegment, quantityOfNumberClasses, language);
         String actualNumber1 = actualNumber.toString();
         assertEquals(expectedNumber, actualNumber1);
-    }*/
+    }
 
     @Test
     public void checkExplosionValueWithNumberWhoNullOnEnglishMethod() {

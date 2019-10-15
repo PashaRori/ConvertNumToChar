@@ -21,8 +21,7 @@ class ConvertNumberToEnglishWordJunitTest {
     @BeforeAll
     public static void beforeTest() {
         language = "Eng";
-        //Поправь .....некультурное существо......
-        standardWordsOneHundred = "one hundred and";
+        standardWordsOneHundred = "one hundred";
     }
 
     @AfterAll
@@ -71,14 +70,14 @@ class ConvertNumberToEnglishWordJunitTest {
             convertNullReceived.createFinalWord();
         });
     }
-/*
+
     @Test
     public void checkExceptionValueWithNotNumberValue() {
         convertTextReceived = new ConvertNumberToWord("Good morning!!!", language);
         assertThrows(NumberFormatException.class, () -> {
             convertTextReceived.createFinalWord();
         });
-    }*/
+    }
 
     @Test
     public void checkExplosionValueWithNumberWhoOutOfExcelDirectory() {
