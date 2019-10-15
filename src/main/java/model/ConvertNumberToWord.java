@@ -38,11 +38,9 @@ public class ConvertNumberToWord {
 
             for (String numberSegment : numberSegments) {
                 if (languageConvert.equals("Rus")) {
-                    conversionResult.append(createOnRussian(Integer.parseInt(numberSegment),
-                            quantityOfNumberClasses, languageConvert));
+                    conversionResult.append(createOnRussian(numberSegment, quantityOfNumberClasses, languageConvert));
                 } else {
-                    conversionResult.append(createOnEnglish(Integer.parseInt(numberSegment),
-                            quantityOfNumberClasses, languageConvert));
+                    conversionResult.append(createOnEnglish(numberSegment, quantityOfNumberClasses, languageConvert));
                 }
 
                 quantityOfNumberClasses--;

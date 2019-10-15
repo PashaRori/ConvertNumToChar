@@ -4,45 +4,47 @@ public class ConvertProcessing {
     private static int hundredOfNumber;
     private static int dozenOfNumber;
     private static int unitOfNumber;
+    private static String hundredFromWords;
+    private static String dozenFromWords;
 
-    //можно попробовать переписать с наследование или тип того
-    public static StringBuilder createOnRussian(int drainFromNumberSegment, int quantityOfNumberClasses, String languageConvert) {
+    public static StringBuilder createOnRussian(String receivedSegment, int quantityOfNumberClasses, String languageConvert) {
         StringBuilder resultCreateWord = new StringBuilder();
 
-        hundredOfNumber = drainFromNumberSegment / 100;
-        String hundredFromWords = forHundred(languageConvert);
-        dozenOfNumber = drainFromNumberSegment % 100;
-        String dozenFromWords = forDozen(languageConvert);
-        unitOfNumber = drainFromNumberSegment % 10;
+        int numberSegment = Integer.parseInt(receivedSegment);
+        hundredOfNumber = numberSegment / 100;
+        hundredFromWords = forHundred(languageConvert);
+        dozenOfNumber = numberSegment % 100;
+        dozenFromWords = forDozen(languageConvert);
+        unitOfNumber = numberSegment % 10;
 
-        if (quantityOfNumberClasses == 0) {
-            resultCreateWord.append(forHundredEndingOnRussian(dozenFromWords, hundredFromWords, quantityOfNumberClasses));
+        if (quantityOfNumberClasses == 0 && !receivedSegment.equals("000")) {
+            resultCreateWord.append(forHundredEndingOnRussian(quantityOfNumberClasses));
         }
         if ((hundredOfNumber != 0 || dozenOfNumber != 0) && quantityOfNumberClasses > 0) {
             if (quantityOfNumberClasses == 1) {
-                resultCreateWord.append(forThousandEndingOnRussian(quantityOfNumberClasses, dozenFromWords, hundredFromWords, languageConvert));
+                resultCreateWord.append(forThousandEndingOnRussian(quantityOfNumberClasses, languageConvert));
             }
             if (quantityOfNumberClasses > 1) {
-                resultCreateWord.append(forExponentialNumberEndingOnRussian(quantityOfNumberClasses, dozenFromWords, hundredFromWords, languageConvert));
+                resultCreateWord.append(forExponentialNumberEndingOnRussian(quantityOfNumberClasses, languageConvert));
             }
         }
         return resultCreateWord;
     }
 
-    //можно попробовать переписать с наследование или тип того
-    public static StringBuilder createOnEnglish(int drainFromNumberSegment, int quantityOfNumberClasses, String languageConvert) {
+    public static StringBuilder createOnEnglish(String receivedSegment, int quantityOfNumberClasses, String languageConvert) {
         StringBuilder resultCreateWord = new StringBuilder();
 
-        hundredOfNumber = drainFromNumberSegment / 100;
-        String hundredFromWords = forHundred(languageConvert);
-        dozenOfNumber = drainFromNumberSegment % 100;
-        String dozenFromWords = forDozen(languageConvert);
+        int numberSegment = Integer.parseInt(receivedSegment);
+        hundredOfNumber = numberSegment / 100;
+        hundredFromWords = forHundred(languageConvert);
+        dozenOfNumber = numberSegment % 100;
+        dozenFromWords = forDozen(languageConvert);
 
-        if (quantityOfNumberClasses == 0) {
-            resultCreateWord.append(forHundredEndingOnEnglish(dozenFromWords, hundredFromWords, quantityOfNumberClasses));
+        if (quantityOfNumberClasses == 0 && !receivedSegment.equals("000")) {
+            resultCreateWord.append(forHundredEndingOnEnglish(quantityOfNumberClasses));
         }
         if ((hundredOfNumber != 0 || dozenOfNumber != 0) && quantityOfNumberClasses > 0) {
-            resultCreateWord.append(forExponentialEndingOnEnglish(quantityOfNumberClasses, dozenFromWords, hundredFromWords, languageConvert));
+            resultCreateWord.append(forExponentialEndingOnEnglish(quantityOfNumberClasses, languageConvert));
         }
         return resultCreateWord;
     }
@@ -69,8 +71,7 @@ public class ConvertProcessing {
         return dozenOfWords;
     }
 
-    //можно попробовать переписать с наследование или тип того
-    private static StringBuilder forHundredEndingOnRussian(String dozenFromWords, String hundredFromWords, int sizeInputNumber) {
+    private static StringBuilder forHundredEndingOnRussian(int sizeInputNumber) {
         StringBuilder hundredEnding = new StringBuilder();
 
         if (hundredOfNumber == 0 && dozenOfNumber == 0) {
@@ -83,8 +84,7 @@ public class ConvertProcessing {
         return hundredEnding;
     }
 
-    //можно попробовать переписать с наследование или тип того
-    private static StringBuilder forHundredEndingOnEnglish(String dozenFromWords, String hundredFromWords, int sizeInputNumber) {
+    private static StringBuilder forHundredEndingOnEnglish(int sizeInputNumber) {
         StringBuilder hundredEnding = new StringBuilder();
 
         if (hundredOfNumber == 0 && dozenOfNumber == 0) {
@@ -97,7 +97,7 @@ public class ConvertProcessing {
         return hundredEnding;
     }
 
-    private static StringBuilder forThousandEndingOnRussian(int quantityOfNumberClasses, String dozenFromWords, String hundredFromWords, String languageConvert) {
+    private static StringBuilder forThousandEndingOnRussian(int quantityOfNumberClasses, String languageConvert) {
         StringBuilder thousandEnding = new StringBuilder();
         String[] arrayFromOneThousandToMaximumAvailableNumber = TextDataParsing.fromOneThousandToMaximumAvailableNumber(languageConvert);
 
@@ -120,8 +120,7 @@ public class ConvertProcessing {
         return thousandEnding;
     }
 
-    //можно попробовать переписать с наследование или тип того
-    private static StringBuilder forExponentialNumberEndingOnRussian(int quantityOfNumberClasses, String dozenFromWords, String hundredFromWords, String languageConvert) {
+    private static StringBuilder forExponentialNumberEndingOnRussian(int quantityOfNumberClasses, String languageConvert) {
         StringBuilder exponentialNumberEnding = new StringBuilder();
         String[] arrayFromOneThousandToMaximumAvailableNumber = TextDataParsing.fromOneThousandToMaximumAvailableNumber(languageConvert);
 
@@ -141,8 +140,7 @@ public class ConvertProcessing {
         return exponentialNumberEnding;
     }
 
-    //можно попробовать переписать с наследование или тип того
-    private static StringBuilder forExponentialEndingOnEnglish(int quantityOfNumberClasses, String dozenFromWords, String hundredFromWords, String languageConvert) {
+    private static StringBuilder forExponentialEndingOnEnglish(int quantityOfNumberClasses, String languageConvert) {
         StringBuilder exponentialNumberEnding = new StringBuilder();
         String[] arrayFromOneThousandToMaximumAvailableNumber = TextDataParsing.fromOneThousandToMaximumAvailableNumber(languageConvert);
         exponentialNumberEnding.append(hundredFromWords).append(dozenFromWords).append(" ")
