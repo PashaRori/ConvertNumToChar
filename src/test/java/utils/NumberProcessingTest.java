@@ -15,7 +15,7 @@ class NumberProcessingTest {
     private static List<String> outputListNumber;
 
     @Test
-    public void testNegativityNumber_compareValueToEqualsThem() {
+    public void compareValueNegativityNumberWithPositivityNumberToEqualsThem() {
         inputNumber = "-100";
         outputNumber = "100";
         String result = NumberProcessing.checkNegativityNumber(inputNumber);
@@ -23,7 +23,7 @@ class NumberProcessingTest {
     }
 
     @Test
-    public void testNegativityNumber_compareValueToEqualsThem_More() {
+    public void compareValuePositivityNumberWithPositivityNumberToEqualsThem() {
         inputNumber = "100";
         outputNumber = "100";
         String result = NumberProcessing.checkNegativityNumber(inputNumber);
@@ -31,7 +31,7 @@ class NumberProcessingTest {
     }
 
     @Test
-    public void testNegativityNumber_compareValueToNotEqualsThem() {
+    public void compareValuePositivityNumberWhoMoreLikeOtherNumberToNotEqualsThem() {
         inputNumber = "1000";
         outputNumber = "100";
         String result = NumberProcessing.checkNegativityNumber(inputNumber);
@@ -39,7 +39,7 @@ class NumberProcessingTest {
     }
 
     @Test
-    public void testNegativityNumber_checkExceptionValueWithNull() {
+    public void checkExceptionValueWithNullForCheckNegativity() {
         inputNumber = null;
         assertThrows(NullPointerException.class, () -> {
             NumberProcessing.checkNegativityNumber(inputNumber);
@@ -47,7 +47,7 @@ class NumberProcessingTest {
     }
 
     @Test
-    public void numberSegments_compareValueToEqualsThem() {
+    public void compareValueInputNumberWithClassesArrayToEqualsThem() {
         inputNumber = "123456789";
         expectedListNumber = Arrays.asList("123", "456", "789");
         outputListNumber = NumberProcessing.numberSegments(inputNumber);
@@ -55,7 +55,7 @@ class NumberProcessingTest {
     }
 
     @Test
-    public void numberSegments_compareValueToNotEqualsThem() {
+    public void compareValueInputNumberWithClassesArrayToNotEqualsThem() {
         inputNumber = "123456789";
         expectedListNumber = Arrays.asList("123", "456");
         outputListNumber = NumberProcessing.numberSegments(inputNumber);
@@ -63,7 +63,7 @@ class NumberProcessingTest {
     }
 
     @Test
-    public void numberSegments_checkExceptionValueWithNull() {
+    public void checkExceptionValueWithNullForSegments() {
         inputNumber = null;
         assertThrows(NullPointerException.class, () -> {
             NumberProcessing.numberSegments(inputNumber);

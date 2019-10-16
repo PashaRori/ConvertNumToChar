@@ -19,7 +19,7 @@ class ConvertNumberToEnglishWordJunitTest {
 
 
     @BeforeAll
-    public static void beforeTest() {
+    public static void createLanguageAndStandardNumber() {
         language = "Eng";
         standardWordsOneHundred = "one hundred";
     }

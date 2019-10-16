@@ -20,7 +20,7 @@ class ConvertNumberToRussianWordJunitTest {
 
 
     @BeforeAll
-    public static void beforeTest() {
+    public static void createLanguageAndStandardNumber() {
         language = "Rus";
         standardWordsOneHundred = "сто";
     }

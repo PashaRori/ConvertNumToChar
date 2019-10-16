@@ -50,12 +50,12 @@ public class ConvertProcessing {
     }
 
     private static String forHundred(String languageConvert) {
-        String[] arrayFromOneHundredToNineHundred = TextDataParsing.fromOneHundredToOneThousand(languageConvert);
+        final String[] arrayFromOneHundredToNineHundred = TextDataParsing.fromOneHundredToOneThousand(languageConvert);
         return ((hundredOfNumber == 0) ? "" : " " + arrayFromOneHundredToNineHundred[hundredOfNumber - 1]);
     }
 
     private static String forDozen(String languageConvert) {
-        String[] arrayFromZeroToOneHundred = TextDataParsing.fromZeroToOneHundred(languageConvert);
+        final String[] arrayFromZeroToOneHundred = TextDataParsing.fromZeroToOneHundred(languageConvert);
         return ((hundredOfNumber > 0 && dozenOfNumber == 0) ? "" : " " + arrayFromZeroToOneHundred[dozenOfNumber]);
     }
 
@@ -91,7 +91,7 @@ public class ConvertProcessing {
 
     private static StringBuilder forThousandEndingOnRussian(int quantityOfNumberClasses, String languageConvert) {
         StringBuilder thousandEnding = new StringBuilder();
-        String[] arrayFromOneThousandToMaximumAvailableNumber = TextDataParsing.fromOneThousandToMaximumAvailableNumber(languageConvert);
+        final String[] arrayFromOneThousandToMaximumAvailableNumber = TextDataParsing.fromOneThousandToMaximumAvailableNumber(languageConvert);
         final String valueFromArray = arrayFromOneThousandToMaximumAvailableNumber[quantityOfNumberClasses - 1];
 
         if (dozenOfNumber > 10 && dozenOfNumber < 20) {
@@ -115,7 +115,7 @@ public class ConvertProcessing {
 
     private static StringBuilder forExponentialNumberEndingOnRussian(int quantityOfNumberClasses, String languageConvert) {
         StringBuilder exponentialNumberEnding = new StringBuilder();
-        String[] arrayFromOneThousandToMaximumAvailableNumber = TextDataParsing.fromOneThousandToMaximumAvailableNumber(languageConvert);
+        final String[] arrayFromOneThousandToMaximumAvailableNumber = TextDataParsing.fromOneThousandToMaximumAvailableNumber(languageConvert);
         final String valueFromArray = arrayFromOneThousandToMaximumAvailableNumber[quantityOfNumberClasses - 1];
 
         if (dozenOfNumber > 10 && dozenOfNumber < 20) {
@@ -136,7 +136,7 @@ public class ConvertProcessing {
 
     private static StringBuilder forExponentialEndingOnEnglish(int quantityOfNumberClasses, String languageConvert) {
         StringBuilder exponentialNumberEnding = new StringBuilder();
-        String[] arrayFromOneThousandToMaximumAvailableNumber = TextDataParsing.fromOneThousandToMaximumAvailableNumber(languageConvert);
+        final String[] arrayFromOneThousandToMaximumAvailableNumber = TextDataParsing.fromOneThousandToMaximumAvailableNumber(languageConvert);
         exponentialNumberEnding.append(hundredFromWords).append(dozenFromWords).append(" ")
                 .append(arrayFromOneThousandToMaximumAvailableNumber[quantityOfNumberClasses - 1]);
         return exponentialNumberEnding;

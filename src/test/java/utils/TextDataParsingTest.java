@@ -12,7 +12,7 @@ class TextDataParsingTest {
     private static String language;
 
     @Test
-    public void fromZeroToOneHundred_compareValueToEqualsThem() {
+    public void compareValueFromZeroToOneHundredAndCreatedArrayOnRussianToEqualsThem() {
         language = "Rus";
         outputEqualsArrayWord = new String[]{"ноль", "один", "два", "три", "четыре", "пять", "шесть", "семь", "восемь",
                 "девять", "десять", "одиннадцать", "двенадцать", "тринадцать", "четырнадцать", "пятнадцать",
@@ -37,15 +37,44 @@ class TextDataParsingTest {
     }
 
     @Test
-    public void fromZeroToOneHundred_compareValueToNotEqualsThem() {
+    public void compareValueFromZeroToThreeAndCreatedArrayOnRussianToNotEqualsThem() {
         language = "Rus";
         outputNotEqualsArrayWord = new String[]{"ноль", "один", "два", "три"};
         String[] result = TextDataParsing.fromZeroToOneHundred(language);
         Assert.assertNotEquals(outputNotEqualsArrayWord, result);
     }
+/*
+
 
     @Test
-    public void fromZeroToOneHundred_checkExceptionValueWithNull() {
+    public void compareValueFromZeroToOneHundredAndCreatedArrayOnEnglishToEqualsThem() {
+        language = "Eng";
+        outputEqualsArrayWord = new String[]{"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen",
+"fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty", "twenty one", "twenty two", "twenty three",
+"twenty four", "twenty five", "twenty six", "twenty seven", "twenty eight", "twenty nine", "thirty", "thirty one",
+"thirty two", "thirty three", "thirty four", "thirty five", "thirty six", "thirty seven", "thirty eight", "thirty nine",
+"forty", "forty one", "forty two", "forty three", "forty four", "forty five", "forty six", "forty seven", "forty eight",
+"forty nine", "fifty", "fifty one", "fifty two", "fifty three", "fifty four", "fifty five", "fifty six", "fifty seven",
+"fifty eight", "fifty nine", "sixty", "sixty one", "sixty two", "sixty three", "sixty four", "sixty five", "sixty six",
+"sixty seven", "sixty eight", "sixty nine", "seventy", "seventy one", "seventy two", "seventy three", "seventy four",
+"seventy five", "seventy six", "seventy seven", "seventy eight", "seventy nine", "eighty", "eighty one", "eighty two",
+"eighty three", "eighty four", "eighty five", "eighty six", "eighty seven", "eighty eight", "eighty nine", "ninety",
+"ninety one", "ninety two", "ninety three", "ninety four", "ninety five", "ninety six", "ninety seven", "ninety eight",
+"ninety nine"};
+        String[] result = TextDataParsing.fromZeroToOneHundred(language);
+        Assert.assertArrayEquals(outputEqualsArrayWord, result);
+    }
+
+    @Test
+    public void compareValueFromZeroToThreeAndCreatedArrayOnEnglishToNotEqualsThem() {
+        language = "Eng";
+        outputNotEqualsArrayWord = new String[]{"ноль", "один", "два", "три"};
+        String[] result = TextDataParsing.fromZeroToOneHundred(language);
+        Assert.assertNotEquals(outputNotEqualsArrayWord, result);
+    }
+*/
+    @Test
+    public void checkExceptionValueWithNullFromArrayZeroToOneHundred() {
         language = null;
         assertThrows(NullPointerException.class, () -> {
             TextDataParsing.fromZeroToOneHundred(language);
@@ -53,7 +82,7 @@ class TextDataParsingTest {
     }
 
     @Test
-    public void fromOneHundredToOneThousand_compareValueToEqualsThem() {
+    public void compareValueFromOneHundredToOneThousandAndCreatedArrayOnRussianToEqualsThem() {
         language = "Rus";
         outputEqualsArrayWord = new String[]{"сто", "двести", "триста", "четыреста", "пятьсот", "шестьсот", "семьсот",
                 "восемьсот", "девятьсот"};
@@ -62,15 +91,32 @@ class TextDataParsingTest {
     }
 
     @Test
-    public void fromOneHundredToOneThousand_compareValueToNotEqualsThem() {
+    public void compareValueFromOneHundredToOneThousandAndCreatedArrayOnRussianToNotEqualsThem() {
         language = "Rus";
         outputNotEqualsArrayWord = new String[]{"сто", "двести"};
         String[] result = TextDataParsing.fromOneHundredToOneThousand(language);
         assertNotEquals(outputNotEqualsArrayWord, result);
     }
+/*
+    @Test
+    public void compareValueFromOneHundredToOneThousandAndCreatedArrayOnEnglishToEqualsThem() {
+        language = "Eng";
+        outputEqualsArrayWord = new String[]{"сто", "двести", "триста", "четыреста", "пятьсот", "шестьсот", "семьсот",
+                "восемьсот", "девятьсот"};
+        String[] result = TextDataParsing.fromOneHundredToOneThousand(language);
+        Assert.assertArrayEquals(outputEqualsArrayWord, result);
+    }
 
     @Test
-    public void fromOneHundredToOneThousand_checkExceptionValueWithNull() {
+    public void compareValueFromOneHundredToOneThousandAndCreatedArrayOnEnglishToNotEqualsThem() {
+        language = "Eng";
+        outputNotEqualsArrayWord = new String[]{"сто", "двести"};
+        String[] result = TextDataParsing.fromOneHundredToOneThousand(language);
+        assertNotEquals(outputNotEqualsArrayWord, result);
+    }
+*/
+    @Test
+    public void checkExceptionValueWithNullFromArrayOneHundredToOneThousand() {
         language = null;
         assertThrows(NullPointerException.class, () -> {
             TextDataParsing.fromOneHundredToOneThousand(language);
@@ -78,7 +124,7 @@ class TextDataParsingTest {
     }
 
     @Test
-    public void fromOneThousandToMaximumAvailableNumber_compareValueToEqualsThem() {
+    public void compareValueFromOneThousandToMaximumAvailableNumberAndCreatedArrayOnRussianToEqualsThem() {
         language = "Rus";
         outputEqualsArrayWord = new String[]{"тысяч", "миллион", "миллиард", "триллион", "квадриллион", "квинтиллион",
                 "секстиллион", "септиллион", "октиллион", "нониллион", "дециллион", "андециллион", "дуодециллион",
@@ -89,15 +135,35 @@ class TextDataParsingTest {
     }
 
     @Test
-    public void fromOneThousandToMaximumAvailableNumber_compareValueToNotEqualsThem() {
+    public void compareValueFromOneThousandToMaximumAvailableNumberAndCreatedArrayOnRussianToNotEqualsThem() {
         language = "Rus";
         outputNotEqualsArrayWord = new String[]{"тысяч", "миллион", "миллиард"};
         String[] result = TextDataParsing.fromOneThousandToMaximumAvailableNumber(language);
         Assert.assertNotEquals(outputNotEqualsArrayWord, result);
     }
 
+/*
     @Test
-    public void fromOneThousandToMaximumAvailableNumber_checkExceptionValueWithNull() {
+    public void compareValueFromOneThousandToMaximumAvailableNumberAndCreatedArrayOnEnglishToEqualsThem() {
+        language = "Eng";
+        outputEqualsArrayWord = new String[]{"тысяч", "миллион", "миллиард", "триллион", "квадриллион", "квинтиллион",
+                "секстиллион", "септиллион", "октиллион", "нониллион", "дециллион", "андециллион", "дуодециллион",
+                "тридециллион", "квадридециллион", "квинтидециллион", "секстидециллион", "септидециллион",
+                "октидециллион", "нонидециллион", "децидециллион"};
+        String[] result = TextDataParsing.fromOneThousandToMaximumAvailableNumber(language);
+        Assert.assertArrayEquals(outputEqualsArrayWord, result);
+    }
+
+    @Test
+    public void compareValueFromOneThousandToMaximumAvailableNumberAndCreatedArrayOnEnglishToNotEqualsThem() {
+        language = "Eng";
+        outputNotEqualsArrayWord = new String[]{"тысяч", "миллион", "миллиард"};
+        String[] result = TextDataParsing.fromOneThousandToMaximumAvailableNumber(language);
+        Assert.assertNotEquals(outputNotEqualsArrayWord, result);
+    }
+*/
+    @Test
+    public void checkExceptionValueWithNullFromArrayOneThousandToMaximumAvailableNumber() {
         language = null;
         assertThrows(NullPointerException.class, () -> {
             TextDataParsing.fromOneThousandToMaximumAvailableNumber(language);

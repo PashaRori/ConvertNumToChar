@@ -7,10 +7,8 @@ import java.util.List;
 public class NumberProcessing {
 
     public static String checkNegativityNumber(String conversionNumber) {
-        if (conversionNumber.charAt(0) == '-' && !(conversionNumber.equals("-0") || conversionNumber.equals("-"))) {
-            conversionNumber = conversionNumber.substring(1);
-        }
-        return conversionNumber;
+        return conversionNumber.charAt(0) == '-' && !(conversionNumber.equals("-0") || conversionNumber.equals("-")) ?
+                conversionNumber.substring(1) : conversionNumber;
     }
 
     public static List<String> numberSegments(String conversionNumberToWord) {
