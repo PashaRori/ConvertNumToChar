@@ -44,7 +44,6 @@ class TextDataParsingTest {
         Assert.assertNotEquals(outputNotEqualsArrayWord, result);
     }
 
-
     @Test
     public void compareValueFromZeroToOneHundredAndCreatedArrayOnEnglishToEqualsThem() {
         language = "Eng";
@@ -66,15 +65,14 @@ class TextDataParsingTest {
         Assert.assertArrayEquals(outputEqualsArrayWord, result);
     }
 
-    /*
-        @Test
-        public void compareValueFromZeroToThreeAndCreatedArrayOnEnglishToNotEqualsThem() {
-            language = "Eng";
-            outputNotEqualsArrayWord = new String[]{"ноль", "один", "два", "три"};
-            String[] result = TextDataParsing.fromZeroToOneHundred(language);
-            Assert.assertNotEquals(outputNotEqualsArrayWord, result);
-        }
-    */
+    @Test
+    public void compareValueFromZeroToThreeAndCreatedArrayOnEnglishToNotEqualsThem() {
+        language = "Eng";
+        outputNotEqualsArrayWord = new String[]{"zero", "one", "two", "three"};
+        String[] result = TextDataParsing.fromZeroToOneHundred(language);
+        Assert.assertNotEquals(outputNotEqualsArrayWord, result);
+    }
+
     @Test
     public void checkExceptionValueWithNullFromArrayZeroToOneHundred() {
         language = null;
@@ -100,24 +98,23 @@ class TextDataParsingTest {
         assertNotEquals(outputNotEqualsArrayWord, result);
     }
 
-    /*
-        @Test
-        public void compareValueFromOneHundredToOneThousandAndCreatedArrayOnEnglishToEqualsThem() {
-            language = "Eng";
-            outputEqualsArrayWord = new String[]{"сто", "двести", "триста", "четыреста", "пятьсот", "шестьсот", "семьсот",
-                    "восемьсот", "девятьсот"};
-            String[] result = TextDataParsing.fromOneHundredToOneThousand(language);
-            Assert.assertArrayEquals(outputEqualsArrayWord, result);
-        }
 
-        @Test
-        public void compareValueFromOneHundredToOneThousandAndCreatedArrayOnEnglishToNotEqualsThem() {
-            language = "Eng";
-            outputNotEqualsArrayWord = new String[]{"сто", "двести"};
-            String[] result = TextDataParsing.fromOneHundredToOneThousand(language);
-            assertNotEquals(outputNotEqualsArrayWord, result);
-        }
-    */
+    @Test
+    public void compareValueFromOneHundredToOneThousandAndCreatedArrayOnEnglishToEqualsThem() {
+        language = "Eng";
+        outputEqualsArrayWord = new String[]{"one hundred", "two hundred", "three hundred", "four hundred", "five hundred", "six hundred", "seven hundred", "eight hundred", "nine hundred"};
+        String[] result = TextDataParsing.fromOneHundredToOneThousand(language);
+        Assert.assertArrayEquals(outputEqualsArrayWord, result);
+    }
+
+    @Test
+    public void compareValueFromOneHundredToOneThousandAndCreatedArrayOnEnglishToNotEqualsThem() {
+        language = "Eng";
+        outputNotEqualsArrayWord = new String[]{"one hundred", "two hundred", "three hundred"};
+        String[] result = TextDataParsing.fromOneHundredToOneThousand(language);
+        assertNotEquals(outputNotEqualsArrayWord, result);
+    }
+
     @Test
     public void checkExceptionValueWithNullFromArrayOneHundredToOneThousand() {
         language = null;
