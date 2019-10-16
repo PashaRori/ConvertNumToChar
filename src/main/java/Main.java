@@ -5,15 +5,15 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class Main {
-    /*
+
         public static void main(String[] args) {
-            String[] result = TextDataParsing.fromZeroToOneHundred("Eng");
+            String[] result = TextDataParsing.fromOneHundredToOneThousand("Eng");
             for (int i = 0; i < result.length; i++) {
                 System.out.println(result[i]);
             }
         }
         }
-    */
+/*
     public static void main(String[] args) {
         System.out.println("Input number: ");
         try {
@@ -27,7 +27,7 @@ public class Main {
         }
     }
 }
-/*
+
     public static void main(String[] args) {
         System.out.println("Введите число: ");
         try {
