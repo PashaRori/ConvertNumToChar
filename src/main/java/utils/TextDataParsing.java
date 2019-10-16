@@ -5,6 +5,8 @@ import static utils.ExcelOpen.fillArrayWithValues;
 
 public class TextDataParsing {
 
+    private TextDataParsing(){}
+
     private static String[] fromZeroToTen(String languageConvert) {
         final String[] arrayFromZeroToTen = new String[10];
         arraycopy(fillArrayWithValues(languageConvert), 0, arrayFromZeroToTen, 0, 10);

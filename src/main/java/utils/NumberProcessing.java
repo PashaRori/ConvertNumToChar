@@ -6,6 +6,8 @@ import java.util.List;
 
 public class NumberProcessing {
 
+    private NumberProcessing(){}
+
     public static String checkNegativityNumber(String conversionNumber) {
         return conversionNumber.charAt(0) == '-' && !(conversionNumber.equals("-0") || conversionNumber.equals("-")) ?
                 conversionNumber.substring(1) : conversionNumber;

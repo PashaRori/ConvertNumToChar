@@ -6,7 +6,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 
 public class Main {
-
+/*
         public static void main(String[] args) {
             String[] result = ExcelOpen.fillArrayWithValues("Eng");
             for (int i = 0; i < result.length; i++) {
@@ -14,7 +14,7 @@ public class Main {
             }
         }
         }
-/*
+*/
     public static void main(String[] args) {
         System.out.println("Input number: ");
         try {
@@ -28,7 +28,7 @@ public class Main {
         }
     }
 }
-
+/*
     public static void main(String[] args) {
         System.out.println("Введите число: ");
         try {

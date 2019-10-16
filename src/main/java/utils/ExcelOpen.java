@@ -12,8 +12,9 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class ExcelOpen {
-
     private static final Logger logger = Logger.getLogger(ExcelOpen.class);
+
+    private ExcelOpen(){}
 
     private static String getDocumentName(String languageConvert) {
         return ((languageConvert.equals("Rus")) ? "DirectoryRussianWordsNumber.xls" : "DirectoryEnglishWordsNumber.xls");
