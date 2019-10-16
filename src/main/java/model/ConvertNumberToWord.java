@@ -12,10 +12,10 @@ import static utils.NumberProcessing.checkNegativityNumber;
 public class ConvertNumberToWord {
     private static final Logger LOGGER = Logger.getLogger(ConvertNumberToWord.class);
     private final static String RUSSIAN = "Rus";
-    private final static String minusRussian = " минус";
-    private final static String minusEnglish = " minus";
-    private final static String NotNumberException = "Not number";
-    private final static String NullException = "Null Exception";
+    private final static String MINUS_RUSSIAN = " минус";
+    private final static String MINUS_ENGLISH = " minus";
+    private final static String NOT_NUMBER_EXCEPTION = "Not number";
+    private final static String NULL_EXCEPTION = "Null Exception";
     private String conversionNumber;
     private String languageConvert;
 
@@ -31,7 +31,7 @@ public class ConvertNumberToWord {
             final String positiveConversionNumber = checkNegativityNumber(conversionNumber);
 
             if (!conversionNumber.equals(positiveConversionNumber)) {
-                conversionResult.append((languageConvert.equals(RUSSIAN))?minusRussian:minusEnglish);
+                conversionResult.append((languageConvert.equals(RUSSIAN))? MINUS_RUSSIAN : MINUS_ENGLISH);
             }
 
             List<String> numberSegments = numberSegments(positiveConversionNumber);
@@ -45,9 +45,9 @@ public class ConvertNumberToWord {
                 quantityOfNumberClasses--;
             }
         } catch (NumberFormatException e) {
-            LOGGER.error(NotNumberException);
+            LOGGER.error(NOT_NUMBER_EXCEPTION);
         } catch (NullPointerException e) {
-            LOGGER.error(NullException);
+            LOGGER.error(NULL_EXCEPTION);
         }
 
         conversionResult.deleteCharAt(0);

@@ -5,11 +5,15 @@ import java.util.Collections;
 import java.util.List;
 
 public class NumberProcessing {
+    private static final String MINUS_ZERO = "-0";
+    private static final String MINUS = "-";
+    private static final char MINUS_CHAR = '-';
 
-    private NumberProcessing(){}
+    private NumberProcessing() {
+    }
 
     public static String checkNegativityNumber(String conversionNumber) {
-        return conversionNumber.charAt(0) == '-' && !(conversionNumber.equals("-0") || conversionNumber.equals("-")) ?
+        return conversionNumber.charAt(0) == MINUS_CHAR && !(conversionNumber.equals(MINUS_ZERO) || conversionNumber.equals(MINUS)) ?
                 conversionNumber.substring(1) : conversionNumber;
     }
 

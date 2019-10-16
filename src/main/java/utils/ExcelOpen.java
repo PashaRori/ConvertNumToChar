@@ -12,16 +12,21 @@ import java.io.IOException;
 import java.util.Objects;
 
 public class ExcelOpen {
-    private static final Logger logger = Logger.getLogger(ExcelOpen.class);
+    private static final Logger LOGGER = Logger.getLogger(ExcelOpen.class);
+    private static final String RUSSIAN = "Rus";
+    private static final String RUSSIAN_DIRECTORY = "DirectoryRussianWordsNumber.xls";
+    private static final String ENGLISH_DIRECTORY = "DirectoryEnglishWordsNumber.xls";
+    private static final String FILE_NOT_FOUND = "File not found";
+    private static final String ERROR_INPUT_STREAM = "Error input stream file in workbook";
 
-    private ExcelOpen(){}
+    private ExcelOpen() {}
 
     private static String getDocumentName(String languageConvert) {
-        return ((languageConvert.equals("Rus")) ? "DirectoryRussianWordsNumber.xls" : "DirectoryEnglishWordsNumber.xls");
+        return ((languageConvert.equals(RUSSIAN)) ? RUSSIAN_DIRECTORY : ENGLISH_DIRECTORY);
     }
 
     private static String convertCell(Cell cell) {
-        String resultConvert = "";
+        String resultConvert = null;
 
         switch (cell.getCellType()) {
             case STRING:
@@ -55,9 +60,9 @@ public class ExcelOpen {
             workbook = new HSSFWorkbook(fileInputStream);
             fileInputStream.close();
         } catch (FileNotFoundException e) {
-            logger.error("File not found");
+            LOGGER.error(FILE_NOT_FOUND);
         } catch (IOException e) {
-            logger.error("Error input stream file in workbook");
+            LOGGER.error(ERROR_INPUT_STREAM);
         }
         return workbook;
     }
