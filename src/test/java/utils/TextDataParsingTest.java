@@ -142,26 +142,25 @@ class TextDataParsingTest {
         Assert.assertNotEquals(outputNotEqualsArrayWord, result);
     }
 
-    /*
-        @Test
-        public void compareValueFromOneThousandToMaximumAvailableNumberAndCreatedArrayOnEnglishToEqualsThem() {
-            language = "Eng";
-            outputEqualsArrayWord = new String[]{"тысяч", "миллион", "миллиард", "триллион", "квадриллион", "квинтиллион",
-                    "секстиллион", "септиллион", "октиллион", "нониллион", "дециллион", "андециллион", "дуодециллион",
-                    "тридециллион", "квадридециллион", "квинтидециллион", "секстидециллион", "септидециллион",
-                    "октидециллион", "нонидециллион", "децидециллион"};
-            String[] result = TextDataParsing.fromOneThousandToMaximumAvailableNumber(language);
-            Assert.assertArrayEquals(outputEqualsArrayWord, result);
-        }
+    @Test
+    public void compareValueFromOneThousandToMaximumAvailableNumberAndCreatedArrayOnEnglishToEqualsThem() {
+        language = "Eng";
+        outputEqualsArrayWord = new String[]{"thousand", "million", "billion", "trillion", "quadrillion",
+                "quintillion", "sextillion", "septillion", "octillion", "quintillion", "decillion", "andecillion",
+                "duodecillion", "tridecillion", "quadrillion", "quintidecillion", "sextidecillion", "septidecillion",
+                "octidecillion", "nonidecillion", "decidecillion"};
+        String[] result = TextDataParsing.fromOneThousandToMaximumAvailableNumber(language);
+        Assert.assertArrayEquals(outputEqualsArrayWord, result);
+    }
 
-        @Test
-        public void compareValueFromOneThousandToMaximumAvailableNumberAndCreatedArrayOnEnglishToNotEqualsThem() {
-            language = "Eng";
-            outputNotEqualsArrayWord = new String[]{"тысяч", "миллион", "миллиард"};
-            String[] result = TextDataParsing.fromOneThousandToMaximumAvailableNumber(language);
-            Assert.assertNotEquals(outputNotEqualsArrayWord, result);
-        }
-    */
+    @Test
+    public void compareValueFromOneThousandToMaximumAvailableNumberAndCreatedArrayOnEnglishToNotEqualsThem() {
+        language = "Eng";
+        outputNotEqualsArrayWord = new String[]{"thousand", "million", "billion", "trillion"};
+        String[] result = TextDataParsing.fromOneThousandToMaximumAvailableNumber(language);
+        Assert.assertNotEquals(outputNotEqualsArrayWord, result);
+    }
+
     @Test
     public void checkExceptionValueWithNullFromArrayOneThousandToMaximumAvailableNumber() {
         language = null;

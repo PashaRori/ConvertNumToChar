@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 public class Main {
 
         public static void main(String[] args) {
-            String[] result = TextDataParsing.fromOneHundredToOneThousand("Eng");
+            String[] result = TextDataParsing.fromOneThousandToMaximumAvailableNumber("Eng");
             for (int i = 0; i < result.length; i++) {
                 System.out.println(result[i]);
             }
