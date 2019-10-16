@@ -1,4 +1,5 @@
 import model.ConvertNumberToWord;
+import utils.ExcelOpen;
 import utils.TextDataParsing;
 
 import java.io.BufferedReader;
@@ -7,7 +8,7 @@ import java.io.InputStreamReader;
 public class Main {
 
         public static void main(String[] args) {
-            String[] result = TextDataParsing.fromOneThousandToMaximumAvailableNumber("Eng");
+            String[] result = ExcelOpen.fillArrayWithValues("Eng");
             for (int i = 0; i < result.length; i++) {
                 System.out.println(result[i]);
             }
