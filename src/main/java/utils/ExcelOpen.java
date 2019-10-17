@@ -84,7 +84,7 @@ public class ExcelOpen {
         return workbook;
     }
 
-    public static String[] fillArrayWithValues(String languageConvert) {
+    public static String[] getArrayWithValues(String languageConvert) {
         Workbook workbook = openFile(languageConvert);
         assert workbook != null;
         int quantityRow = workbook.getSheetAt(0).getLastRowNum() + 1;

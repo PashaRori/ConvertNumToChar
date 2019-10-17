@@ -22,9 +22,9 @@ public class ConvertProcessing {
     private static void getNumberAndWordFromSegment(String receivedSegment, String languageConvert) {
         int numberSegment = Integer.parseInt(receivedSegment);
         hundredOfNumber = numberSegment / 100;
-        hundredFromWords = forHundred(languageConvert);
+        hundredFromWords = getHundred(languageConvert);
         dozenOfNumber = numberSegment % 100;
-        dozenFromWords = forDozen(languageConvert);
+        dozenFromWords = getDozen(languageConvert);
         unitOfNumber = numberSegment % 10;
     }
 
@@ -34,14 +34,14 @@ public class ConvertProcessing {
         getNumberAndWordFromSegment(receivedSegment, languageConvert);
 
         if (quantityOfNumberClasses == 0 && !receivedSegment.equals(ZEROS)) {
-            resultCreateWord.append(forHundredEndingOnRussian(quantityOfNumberClasses));
+            resultCreateWord.append(getHundredEndingOnRussian(quantityOfNumberClasses));
         }
         if ((hundredOfNumber != 0 || dozenOfNumber != 0) && quantityOfNumberClasses > 0) {
             if (quantityOfNumberClasses == 1) {
-                resultCreateWord.append(forThousandEndingOnRussian(quantityOfNumberClasses, languageConvert));
+                resultCreateWord.append(getThousandEndingOnRussian(quantityOfNumberClasses, languageConvert));
             }
             if (quantityOfNumberClasses > 1) {
-                resultCreateWord.append(forExponentialNumberEndingOnRussian(quantityOfNumberClasses, languageConvert));
+                resultCreateWord.append(getBillionsClassesNumberEndingOnRussian(quantityOfNumberClasses, languageConvert));
             }
         }
         return resultCreateWord;
@@ -54,25 +54,25 @@ public class ConvertProcessing {
         getNumberAndWordFromSegment(receivedSegment, languageConvert);
 
         if (quantityOfNumberClasses == 0 && !receivedSegment.equals(ZEROS)) {
-            resultCreateWord.append(forHundredEndingOnEnglish(quantityOfNumberClasses));
+            resultCreateWord.append(getHundredEndingOnEnglish(quantityOfNumberClasses));
         }
         if ((hundredOfNumber != 0 || dozenOfNumber != 0) && quantityOfNumberClasses > 0) {
-            resultCreateWord.append(forExponentialEndingOnEnglish(quantityOfNumberClasses, languageConvert));
+            resultCreateWord.append(getBillionsClassesEndingOnEnglish(quantityOfNumberClasses, languageConvert));
         }
         return resultCreateWord;
     }
 
-    private static String forHundred(String languageConvert) {
-        final String[] arrayFromOneHundredToNineHundred = TextDataParsing.fromOneHundredToOneThousand(languageConvert);
+    private static String getHundred(String languageConvert) {
+        final String[] arrayFromOneHundredToNineHundred = TextDataParsing.getArrayOneHundredToOneThousand(languageConvert);
         return ((hundredOfNumber == 0) ? "" : STRING + arrayFromOneHundredToNineHundred[hundredOfNumber - 1]);
     }
 
-    private static String forDozen(String languageConvert) {
-        final String[] arrayFromZeroToOneHundred = TextDataParsing.fromZeroToOneHundred(languageConvert);
+    private static String getDozen(String languageConvert) {
+        final String[] arrayFromZeroToOneHundred = TextDataParsing.getArrayZeroToOneHundred(languageConvert);
         return ((hundredOfNumber > 0 && dozenOfNumber == 0) ? EMPTY : STRING + arrayFromZeroToOneHundred[dozenOfNumber]);
     }
 
-    private static StringBuilder forHundredEndingOnRussian(int sizeInputNumber) {
+    private static StringBuilder getHundredEndingOnRussian(int sizeInputNumber) {
         StringBuilder hundredEnding = new StringBuilder();
 
         if (hundredOfNumber == 0 && dozenOfNumber == 0) {
@@ -85,7 +85,7 @@ public class ConvertProcessing {
         return hundredEnding;
     }
 
-    private static StringBuilder forHundredEndingOnEnglish(int sizeInputNumber) {
+    private static StringBuilder getHundredEndingOnEnglish(int sizeInputNumber) {
         StringBuilder hundredEnding = new StringBuilder();
 
         if (hundredOfNumber == 0 && dozenOfNumber == 0) {
@@ -102,9 +102,9 @@ public class ConvertProcessing {
         return hundredEnding;
     }
 
-    private static StringBuilder forThousandEndingOnRussian(int quantityOfNumberClasses, String languageConvert) {
+    private static StringBuilder getThousandEndingOnRussian(int quantityOfNumberClasses, String languageConvert) {
         StringBuilder thousandEnding = new StringBuilder();
-        final String[] arrayFromOneThousandToMaximumAvailableNumber = TextDataParsing.fromOneThousandToMaximumAvailableNumber(languageConvert);
+        final String[] arrayFromOneThousandToMaximumAvailableNumber = TextDataParsing.getArrayOneThousandToMaximumAvailableNumber(languageConvert);
         final String valueFromArray = arrayFromOneThousandToMaximumAvailableNumber[quantityOfNumberClasses - 1];
 
         if (dozenOfNumber > 10 && dozenOfNumber < 20) {
@@ -126,9 +126,9 @@ public class ConvertProcessing {
         return thousandEnding;
     }
 
-    private static StringBuilder forExponentialNumberEndingOnRussian(int quantityOfNumberClasses, String languageConvert) {
+    private static StringBuilder getBillionsClassesNumberEndingOnRussian(int quantityOfNumberClasses, String languageConvert) {
         StringBuilder exponentialNumberEnding = new StringBuilder();
-        final String[] arrayFromOneThousandToMaximumAvailableNumber = TextDataParsing.fromOneThousandToMaximumAvailableNumber(languageConvert);
+        final String[] arrayFromOneThousandToMaximumAvailableNumber = TextDataParsing.getArrayOneThousandToMaximumAvailableNumber(languageConvert);
         final String valueFromArray = arrayFromOneThousandToMaximumAvailableNumber[quantityOfNumberClasses - 1];
 
         if (dozenOfNumber > 10 && dozenOfNumber < 20) {
@@ -147,9 +147,9 @@ public class ConvertProcessing {
         return exponentialNumberEnding;
     }
 
-    private static StringBuilder forExponentialEndingOnEnglish(int quantityOfNumberClasses, String languageConvert) {
+    private static StringBuilder getBillionsClassesEndingOnEnglish(int quantityOfNumberClasses, String languageConvert) {
         StringBuilder exponentialNumberEnding = new StringBuilder();
-        final String[] arrayFromOneThousandToMaximumAvailableNumber = TextDataParsing.fromOneThousandToMaximumAvailableNumber(languageConvert);
+        final String[] arrayFromOneThousandToMaximumAvailableNumber = TextDataParsing.getArrayOneThousandToMaximumAvailableNumber(languageConvert);
         exponentialNumberEnding.append(hundredFromWords).append(dozenFromWords).append(STRING)
                 .append(arrayFromOneThousandToMaximumAvailableNumber[quantityOfNumberClasses - 1]);
         return exponentialNumberEnding;

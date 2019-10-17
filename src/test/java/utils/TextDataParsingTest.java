@@ -62,83 +62,83 @@ class TextDataParsingTest {
 
     @Test
     public void compareValueFromZeroToOneHundredAndCreatedArrayOnRussianToEqualsThem() {
-        Assert.assertArrayEquals(RussianArrayZeroToOneHundred, fromZeroToOneHundred(LANGUAGE_RUSSIAN));
+        Assert.assertArrayEquals(RussianArrayZeroToOneHundred, getArrayZeroToOneHundred(LANGUAGE_RUSSIAN));
     }
 
     @Test
     public void compareValueFromZeroToThreeAndCreatedArrayOnRussianToNotEqualsThem() {
-        Assert.assertNotEquals(RussianDifferenceArrayZeroToOneHundred, fromZeroToOneHundred(LANGUAGE_RUSSIAN));
+        Assert.assertNotEquals(RussianDifferenceArrayZeroToOneHundred, getArrayZeroToOneHundred(LANGUAGE_RUSSIAN));
     }
 
     @Test
     public void compareValueFromZeroToOneHundredAndCreatedArrayOnEnglishToEqualsThem() {
-        Assert.assertArrayEquals(EnglishArrayZeroToOneHundred, fromZeroToOneHundred(LANGUAGE_ENGLISH));
+        Assert.assertArrayEquals(EnglishArrayZeroToOneHundred, getArrayZeroToOneHundred(LANGUAGE_ENGLISH));
     }
 
     @Test
     public void compareValueFromZeroToThreeAndCreatedArrayOnEnglishToNotEqualsThem() {
-        Assert.assertNotEquals(EnglishDifferenceArrayZeroToOneHundred, fromZeroToOneHundred(LANGUAGE_ENGLISH));
+        Assert.assertNotEquals(EnglishDifferenceArrayZeroToOneHundred, getArrayZeroToOneHundred(LANGUAGE_ENGLISH));
     }
 
     @Test
     public void checkExceptionValueWithNullFromArrayZeroToOneHundred() {
         assertThrows(AssertionError.class, () -> {
-            fromZeroToOneHundred(NULL);
+            getArrayZeroToOneHundred(NULL);
         });
     }
 
     @Test
     public void compareValueFromOneHundredToOneThousandAndCreatedArrayOnRussianToEqualsThem() {
-        Assert.assertArrayEquals(RussianOneHundredToOneThousand, fromOneHundredToOneThousand(LANGUAGE_RUSSIAN));
+        Assert.assertArrayEquals(RussianOneHundredToOneThousand, getArrayOneHundredToOneThousand(LANGUAGE_RUSSIAN));
     }
 
     @Test
     public void compareValueFromOneHundredToOneThousandAndCreatedArrayOnRussianToNotEqualsThem() {
-        assertNotEquals(RussianDifferenceOneHundredToOneThousand, fromOneHundredToOneThousand(LANGUAGE_RUSSIAN));
+        assertNotEquals(RussianDifferenceOneHundredToOneThousand, getArrayOneHundredToOneThousand(LANGUAGE_RUSSIAN));
     }
 
 
     @Test
     public void compareValueFromOneHundredToOneThousandAndCreatedArrayOnEnglishToEqualsThem() {
-        Assert.assertArrayEquals(EnglishOneHundredToOneThousand, fromOneHundredToOneThousand(LANGUAGE_ENGLISH));
+        Assert.assertArrayEquals(EnglishOneHundredToOneThousand, getArrayOneHundredToOneThousand(LANGUAGE_ENGLISH));
     }
 
     @Test
     public void compareValueFromOneHundredToOneThousandAndCreatedArrayOnEnglishToNotEqualsThem() {
-        assertNotEquals(EnglishDifferenceOneHundredToOneThousand, fromOneHundredToOneThousand(LANGUAGE_ENGLISH));
+        assertNotEquals(EnglishDifferenceOneHundredToOneThousand, getArrayOneHundredToOneThousand(LANGUAGE_ENGLISH));
     }
 
     @Test
     public void checkExceptionValueWithNullFromArrayOneHundredToOneThousand() {
         assertThrows(AssertionError.class, () -> {
-            fromOneHundredToOneThousand(NULL);
+            getArrayOneHundredToOneThousand(NULL);
         });
     }
 
     @Test
     public void compareValueFromOneThousandToMaximumAvailableNumberAndCreatedArrayOnRussianToEqualsThem() {
-        Assert.assertArrayEquals(RussianOneThousandToMaximumAvailableNumber, fromOneThousandToMaximumAvailableNumber(LANGUAGE_RUSSIAN));
+        Assert.assertArrayEquals(RussianOneThousandToMaximumAvailableNumber, getArrayOneThousandToMaximumAvailableNumber(LANGUAGE_RUSSIAN));
     }
 
     @Test
     public void compareValueFromOneThousandToMaximumAvailableNumberAndCreatedArrayOnRussianToNotEqualsThem() {
-        Assert.assertNotEquals(RussianDifferenceOneThousandToMaximumAvailableNumber, fromOneThousandToMaximumAvailableNumber(LANGUAGE_RUSSIAN));
+        Assert.assertNotEquals(RussianDifferenceOneThousandToMaximumAvailableNumber, getArrayOneThousandToMaximumAvailableNumber(LANGUAGE_RUSSIAN));
     }
 
     @Test
     public void compareValueFromOneThousandToMaximumAvailableNumberAndCreatedArrayOnEnglishToEqualsThem() {
-        Assert.assertArrayEquals(EnglishOneThousandToMaximumAvailableNumber, fromOneThousandToMaximumAvailableNumber(LANGUAGE_ENGLISH));
+        Assert.assertArrayEquals(EnglishOneThousandToMaximumAvailableNumber, getArrayOneThousandToMaximumAvailableNumber(LANGUAGE_ENGLISH));
     }
 
     @Test
     public void compareValueFromOneThousandToMaximumAvailableNumberAndCreatedArrayOnEnglishToNotEqualsThem() {
-        Assert.assertNotEquals(EnglishDifferenceOneThousandToMaximumAvailableNumber, fromOneThousandToMaximumAvailableNumber(LANGUAGE_ENGLISH));
+        Assert.assertNotEquals(EnglishDifferenceOneThousandToMaximumAvailableNumber, getArrayOneThousandToMaximumAvailableNumber(LANGUAGE_ENGLISH));
     }
 
     @Test
     public void checkExceptionValueWithNullFromArrayOneThousandToMaximumAvailableNumber() {
         assertThrows(AssertionError.class, () -> {
-            fromOneThousandToMaximumAvailableNumber(NULL);
+            getArrayOneThousandToMaximumAvailableNumber(NULL);
         });
     }
 }
