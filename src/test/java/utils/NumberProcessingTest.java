@@ -6,67 +6,54 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static utils.NumberProcessing.checkNegativityNumber;
+import static utils.NumberProcessing.numberSegments;
 
 class NumberProcessingTest {
-
-    private static String inputNumber;
-    private static String outputNumber;
-    private static List<String> expectedListNumber;
-    private static List<String> outputListNumber;
+    private static final String MINUS_ONE_HUNDRED = "-100";
+    private static final String ONE_HUNDRED = "100";
+    private static final String ONE_THOUSAND = "1000";
+    private static final String NULL = null;
+    private static final String ONE_TO_NINE = "123456789";
+    private static final List<String> ONE_TO_NINE_SEGMENT = Arrays.asList("123", "456", "789");
+    private static final List<String> ONE_TO_SIX_SEGMENT = Arrays.asList("123", "456");
 
     @Test
     public void compareValueNegativityNumberWithPositivityNumberToEqualsThem() {
-        inputNumber = "-100";
-        outputNumber = "100";
-        String result = NumberProcessing.checkNegativityNumber(inputNumber);
-        assertEquals(outputNumber, result);
+        assertEquals(ONE_HUNDRED, checkNegativityNumber(MINUS_ONE_HUNDRED));
     }
 
     @Test
     public void compareValuePositivityNumberWithPositivityNumberToEqualsThem() {
-        inputNumber = "100";
-        outputNumber = "100";
-        String result = NumberProcessing.checkNegativityNumber(inputNumber);
-        assertEquals(outputNumber, result);
+        assertEquals(ONE_HUNDRED, checkNegativityNumber(ONE_HUNDRED));
     }
 
     @Test
     public void compareValuePositivityNumberWhoMoreLikeOtherNumberToNotEqualsThem() {
-        inputNumber = "1000";
-        outputNumber = "100";
-        String result = NumberProcessing.checkNegativityNumber(inputNumber);
-        assertNotEquals(outputNumber, result);
+        assertNotEquals(ONE_HUNDRED, checkNegativityNumber(ONE_THOUSAND));
     }
 
     @Test
     public void checkExceptionValueWithNullForCheckNegativity() {
-        inputNumber = null;
         assertThrows(NullPointerException.class, () -> {
-            NumberProcessing.checkNegativityNumber(inputNumber);
+            checkNegativityNumber(NULL);
         });
     }
 
     @Test
     public void compareValueInputNumberWithClassesArrayToEqualsThem() {
-        inputNumber = "123456789";
-        expectedListNumber = Arrays.asList("123", "456", "789");
-        outputListNumber = NumberProcessing.numberSegments(inputNumber);
-        assertEquals(expectedListNumber, outputListNumber);
+        assertEquals(ONE_TO_NINE_SEGMENT, numberSegments(ONE_TO_NINE));
     }
 
     @Test
     public void compareValueInputNumberWithClassesArrayToNotEqualsThem() {
-        inputNumber = "123456789";
-        expectedListNumber = Arrays.asList("123", "456");
-        outputListNumber = NumberProcessing.numberSegments(inputNumber);
-        assertNotEquals(expectedListNumber, outputListNumber);
+        assertNotEquals(ONE_TO_SIX_SEGMENT, numberSegments(ONE_TO_NINE));
     }
 
     @Test
     public void checkExceptionValueWithNullForSegments() {
-        inputNumber = null;
         assertThrows(NullPointerException.class, () -> {
-            NumberProcessing.numberSegments(inputNumber);
+            numberSegments(NULL);
         });
     }
 }

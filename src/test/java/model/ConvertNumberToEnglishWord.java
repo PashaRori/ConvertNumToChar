@@ -1,22 +1,22 @@
 package model;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ConvertNumberToRussianWordJunitTest {
-    private static final String LANGUAGE = "Rus";
+class ConvertNumberToEnglishWord {
+    private static final String LANGUAGE = "Eng";
     private static final String ONE_HUNDRED = "100";
-    private static final String ONE_HUNDRED_WORD = "сто";
+    private static final String ONE_HUNDRED_WORD = "one hundred";
     private static final String TEN = "10";
     private static final String ONE_HUNDRED_WITH_ZEROS_AT_BEGIN = "00000100";
     private static final String ONE_MILLION_ONE = "1000001";
-    private static final String ONE_MILLION_ONE_WORD = "один миллион один";
+    private static final String ONE_MILLION_ONE_WORD = "one million and one";
     private static final String NULL = null;
-    private static final String NOT_NUMBER_VALUE = "Доброе Утро!!!";
-    private static final String NUMBER_WHO_OUT_OF_EXCEL_DIRECTORY = "1234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890";
+    private static final String NOT_NUMBER_VALUE = "Good morning!!!";
+    private static final String NUMBER_WHO_OUT_OF_EXCEL_DIRECTORY = "1234567890123456789012345678901234567890123456789" +
+            "012345678901234567890123456789012345678901234567890";
     private static ConvertNumberToWord convertedOneHundred;
     private static ConvertNumberToWord convertedTen;
     private static ConvertNumberToWord convertOneHundredWithZerosAtBegin;
@@ -26,7 +26,7 @@ class ConvertNumberToRussianWordJunitTest {
     private static ConvertNumberToWord convertOutOfExcelDirectory;
 
     @BeforeAll
-    public static void createMemoryToData() {
+    public static void createMemoryToData() {//
         convertedOneHundred = new ConvertNumberToWord(ONE_HUNDRED, LANGUAGE);
         convertedTen = new ConvertNumberToWord(TEN, LANGUAGE);
         convertOneHundredWithZerosAtBegin = new ConvertNumberToWord(ONE_HUNDRED_WITH_ZEROS_AT_BEGIN, LANGUAGE);

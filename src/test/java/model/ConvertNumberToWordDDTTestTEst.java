@@ -18,20 +18,6 @@ public class ConvertNumberToWordDDTTestTEst {
 
     private final static Logger LOGGER = Logger.getLogger(ConvertNumberToWordDDTTestTEst.class);
 
-    @Test(dataProvider = "getValuesFromRussianExcel")
-    public void compareNumberConvertedToWordsAndWordsOnRussian(String numberConvertedToWords, String referenceWords) {
-        ConvertNumberToWord convertNumberToWord = new ConvertNumberToWord(numberConvertedToWords, "Rus");
-        String convertedValueOfNumberToWords = convertNumberToWord.createFinalWord();
-        assertEquals(referenceWords, convertedValueOfNumberToWords);
-    }
-
-    @Test(dataProvider = "getValuesFromEnglishExcel")
-    public void compareNumberConvertedToWordsAndWordsOnEnglish(String numberConvertedToWords, String referenceWords) {
-        ConvertNumberToWord convertNumberToWord = new ConvertNumberToWord(numberConvertedToWords, "Eng");
-        String convertedValueOfNumberToWords = convertNumberToWord.createFinalWord();
-        assertEquals(referenceWords, convertedValueOfNumberToWords);
-    }
-
     @DataProvider
     public Object[][] getValuesFromRussianExcel() {
         ClassLoader classLoader = ExcelOpen.class.getClassLoader();
@@ -88,5 +74,19 @@ public class ConvertNumberToWordDDTTestTEst {
             LOGGER.error("File not closed");
         }
         return arrayWithValuesFromExcel;
+    }
+
+    @Test(dataProvider = "getValuesFromRussianExcel")
+    public void compareNumberConvertedToWordsAndWordsOnRussian(String numberConvertedToWords, String referenceWords) {
+        ConvertNumberToWord convertNumberToWord = new ConvertNumberToWord(numberConvertedToWords, "Rus");
+        String convertedValueOfNumberToWords = convertNumberToWord.createFinalWord();
+        assertEquals(referenceWords, convertedValueOfNumberToWords);
+    }
+
+    @Test(dataProvider = "getValuesFromEnglishExcel")
+    public void compareNumberConvertedToWordsAndWordsOnEnglish(String numberConvertedToWords, String referenceWords) {
+        ConvertNumberToWord convertNumberToWord = new ConvertNumberToWord(numberConvertedToWords, "Eng");
+        String convertedValueOfNumberToWords = convertNumberToWord.createFinalWord();
+        assertEquals(referenceWords, convertedValueOfNumberToWords);
     }
 }

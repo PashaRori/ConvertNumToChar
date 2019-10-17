@@ -8,10 +8,20 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class ConvertProcessingTest {
-    private static String numberSegment;
-    private static int quantityOfNumberClasses;
-    private static String language;
-    private static String expectedNumber;
+    private static final String ONE_HUNDRED_TWENTY_THREE = "123";
+    private static final String ONE_HUNDRED_TWENTY_THREE_RUSSIAN_WORD = " сто двадцать три";
+    private static final String ONE_HUNDRED_TWENTY_THREE_ENGLISH_WORD = " one hundred and twenty three";
+    private static final String ONE_HUNDRED_TWENTY_THREE_THOUSAND_RUSSIAN_WORD = " сто двадцать три тысячи";
+    private static final String ONE_HUNDRED_TWENTY_THREE_THOUSAND_ENGLISH_WORD = " one hundred twenty three thousand";
+    private static final String ONE_HUNDRED = "100";
+    private static final String ONE_HUNDRED_RUSSIAN_WORD = " сто";
+    private static final String ONE_HUNDRED_ENGLISH_WORD = " one hundred";
+    private static final String LANGUAGE_RUSSIAN = "Rus";
+    private static final String LANGUAGE_ENGLISH = "Eng";
+    private static final String NULL = null;
+    private static final String NOT_NUMBER_FORMAT = "MMM";
+    private static final int UNIT_CLASSES = 0;
+    private static final int THOUSAND_CLASSES = 1;
     private static StringBuilder actualNumber;
 
     @BeforeEach
@@ -21,114 +31,70 @@ class ConvertProcessingTest {
 
     @AfterEach
     public void clearMemoryForTest() {
-        expectedNumber = null;
         actualNumber = null;
     }
 
     @Test
     public void compareValueOneHundredTwentyThreeWihThatRussianWord() {
-        numberSegment = "123";
-        quantityOfNumberClasses = 0;
-        language = "Rus";
-        expectedNumber = " сто двадцать три";
-        actualNumber = ConvertProcessing.createOnRussian(numberSegment, quantityOfNumberClasses, language);
-        String actualNumber1 = actualNumber.toString();
-        assertEquals(expectedNumber, actualNumber1);
+        actualNumber = ConvertProcessing.createOnRussian(ONE_HUNDRED_TWENTY_THREE, UNIT_CLASSES, LANGUAGE_RUSSIAN);
+        assertEquals(ONE_HUNDRED_TWENTY_THREE_RUSSIAN_WORD, actualNumber.toString());
     }
 
     @Test
     public void compareValueOneHundredTwentyThreeThousandWihThatRussianWord() {
-        numberSegment = "123";
-        quantityOfNumberClasses = 1;
-        language = "Rus";
-        expectedNumber = " сто двадцать три тысячи";
-        actualNumber = ConvertProcessing.createOnRussian(numberSegment, quantityOfNumberClasses, language);
-        String actualNumber1 = actualNumber.toString();
-        assertEquals(expectedNumber, actualNumber1);
+        actualNumber = ConvertProcessing.createOnRussian(ONE_HUNDRED_TWENTY_THREE, THOUSAND_CLASSES, LANGUAGE_RUSSIAN);
+        assertEquals(ONE_HUNDRED_TWENTY_THREE_THOUSAND_RUSSIAN_WORD, actualNumber.toString());
     }
 
     @Test
     public void compareValueOneHundredWithThatRussianWord() {
-        numberSegment = "100";
-        quantityOfNumberClasses = 0;
-        language = "Rus";
-        expectedNumber = " сто";
-        actualNumber = ConvertProcessing.createOnRussian(numberSegment, quantityOfNumberClasses, language);
-        String actualNumber1 = actualNumber.toString();
-        assertEquals(expectedNumber, actualNumber1);
+        actualNumber = ConvertProcessing.createOnRussian(ONE_HUNDRED, UNIT_CLASSES, LANGUAGE_RUSSIAN);
+        assertEquals(ONE_HUNDRED_RUSSIAN_WORD, actualNumber.toString());
     }
 
     @Test
     public void checkExplosionValueWithNumberWhoNullOnRussianMethod() {
-        numberSegment = "123";
-        quantityOfNumberClasses = 0;
-        language = null;
-        assertThrows(NullPointerException.class, () -> {
-            ConvertProcessing.createOnRussian(numberSegment, quantityOfNumberClasses, language);
+        assertThrows(AssertionError.class, () -> {
+            ConvertProcessing.createOnRussian(ONE_HUNDRED_TWENTY_THREE, UNIT_CLASSES, NULL);
         });
     }
 
     @Test
     public void checkExplosionValueWithNumberWhoNotNumberFormatOnRussianMethod() {
-        numberSegment = "MMM";
-        quantityOfNumberClasses = 0;
-        language = "Rus";
         assertThrows(NumberFormatException.class, () -> {
-            ConvertProcessing.createOnRussian(numberSegment, quantityOfNumberClasses, language);
+            ConvertProcessing.createOnRussian(NOT_NUMBER_FORMAT, UNIT_CLASSES, LANGUAGE_RUSSIAN);
         });
     }
 
     @Test
     public void compareValueOneHundredTwentyThreeWihThatEnglishWord() {
-        numberSegment = "123";
-        quantityOfNumberClasses = 0;
-        language = "Eng";
-        expectedNumber = " one hundred and twenty three";
-        actualNumber = ConvertProcessing.createOnEnglish(numberSegment, quantityOfNumberClasses, language);
-        String actualNumber1 = actualNumber.toString();
-        assertEquals(expectedNumber, actualNumber1);
+        actualNumber = ConvertProcessing.createOnEnglish(ONE_HUNDRED_TWENTY_THREE, UNIT_CLASSES, LANGUAGE_ENGLISH);
+        assertEquals(ONE_HUNDRED_TWENTY_THREE_ENGLISH_WORD, actualNumber.toString());
     }
 
     @Test
     public void compareValueOneHundredTwentyThreeThousandWithThatEnglishWord() {
-        numberSegment = "123";
-        quantityOfNumberClasses = 1;
-        language = "Eng";
-        expectedNumber = " one hundred twenty three thousand";
-        actualNumber = ConvertProcessing.createOnEnglish(numberSegment, quantityOfNumberClasses, language);
-        String actualNumber1 = actualNumber.toString();
-        assertEquals(expectedNumber, actualNumber1);
+        actualNumber = ConvertProcessing.createOnEnglish(ONE_HUNDRED_TWENTY_THREE, THOUSAND_CLASSES, LANGUAGE_ENGLISH);
+        assertEquals(ONE_HUNDRED_TWENTY_THREE_THOUSAND_ENGLISH_WORD, actualNumber.toString());
     }
 
     @Test
     public void compareValueOneHundredWithThatEnglishWord() {
-        numberSegment = "100";
-        quantityOfNumberClasses = 0;
-        language = "Eng";
-        expectedNumber = " one hundred";
-        actualNumber = ConvertProcessing.createOnEnglish(numberSegment, quantityOfNumberClasses, language);
-        String actualNumber1 = actualNumber.toString();
-        assertEquals(expectedNumber, actualNumber1);
+        actualNumber = ConvertProcessing.createOnEnglish(ONE_HUNDRED, UNIT_CLASSES, LANGUAGE_ENGLISH);
+        assertEquals(ONE_HUNDRED_ENGLISH_WORD, actualNumber.toString());
     }
 
     @Test
     public void checkExplosionValueWithNumberWhoNullOnEnglishMethod() {
-        numberSegment = "123";
-        quantityOfNumberClasses = 0;
-        language = null;
-        assertThrows(NullPointerException.class, () -> {
-            ConvertProcessing.createOnEnglish(numberSegment, quantityOfNumberClasses, language);
+        assertThrows(AssertionError.class, () -> {
+            ConvertProcessing.createOnEnglish(ONE_HUNDRED_TWENTY_THREE, UNIT_CLASSES, NULL);
         });
     }
 
-
     @Test
     public void checkExplosionValueWithNumberWhoNotNumberFormatOnEnglishMethod() {
-        numberSegment = "MMM";
-        quantityOfNumberClasses = 0;
-        language = "Eng";
         assertThrows(NumberFormatException.class, () -> {
-            ConvertProcessing.createOnEnglish(numberSegment, quantityOfNumberClasses, language);
+            ConvertProcessing.createOnEnglish(NOT_NUMBER_FORMAT, UNIT_CLASSES, LANGUAGE_ENGLISH);
         });
     }
 }
