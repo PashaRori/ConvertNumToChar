@@ -1,4 +1,4 @@
-package utils;
+package util;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
@@ -17,7 +17,7 @@ public class ExcelOpen {
     private static final String RUSSIAN = "Rus";
     private static final String RUSSIAN_DIRECTORY = "DirectoryRussianWordsNumber.xls";
     private static final String ENGLISH_DIRECTORY = "DirectoryEnglishWordsNumber.xls";
-    private final static String LOG4J_FILE = "log4j.properties";
+    private static final String LOG4J_FILE = "log4j.properties";
     private static final String FILE_NOT_FOUND = "File not found";
     private static final String ERROR_INPUT_STREAM = "Error input stream file in workbook";
     private static final String ERROR_CLOSE_STREAM = "Error close stream";
@@ -67,8 +67,15 @@ public class ExcelOpen {
             } catch (IOException e) {
                 PropertyConfigurator.configure(classLoader.getResource(LOG4J_FILE));
                 LOGGER.error(ERROR_INPUT_STREAM);
+            } finally {
+                try {
+                    assert workbook != null;
+                    workbook.close();
+                } catch (IOException e) {
+                    PropertyConfigurator.configure(classLoader.getResource(LOG4J_FILE));
+                    LOGGER.error(ERROR_CLOSE_STREAM);
+                }
             }
-
         } catch (FileNotFoundException e) {
             PropertyConfigurator.configure(classLoader.getResource(LOG4J_FILE));
             LOGGER.error(FILE_NOT_FOUND);

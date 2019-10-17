@@ -5,20 +5,20 @@ import org.apache.log4j.PropertyConfigurator;
 
 import java.util.List;
 
-import static utils.ConvertProcessing.createOnEnglish;
-import static utils.ConvertProcessing.createOnRussian;
-import static utils.NumberProcessing.checkNegativityNumber;
-import static utils.NumberProcessing.numberSegments;
+import static util.ConvertProcessing.createOnEnglish;
+import static util.ConvertProcessing.createOnRussian;
+import static util.NumberProcessing.checkNegativityNumber;
+import static util.NumberProcessing.numberSegments;
 
 public class ConvertNumberToWord {
     private static final Logger LOGGER = Logger.getLogger(ConvertNumberToWord.class);
-    private final static String RUSSIAN = "Rus";
-    private final static String MINUS_RUSSIAN = " минус";
-    private final static String MINUS_ENGLISH = " minus";
-    private final static String NOT_NUMBER_EXCEPTION = "Not number";
-    private final static String NULL_EXCEPTION = "Null Exception";
-    private final static String OUT_OF_BOUNDS = "Out Of Bounds";
-    private final static String LOG4J_FILE = "log4j.properties";
+    private static final String RUSSIAN = "Rus";
+    private static final String MINUS_RUSSIAN = " минус";
+    private static final String MINUS_ENGLISH = " minus";
+    private static final String NOT_NUMBER_EXCEPTION = "Not number";
+    private static final String NULL_EXCEPTION = "Null Exception";
+    private static final String OUT_OF_BOUNDS = "Out Of Bounds";
+    private static final String LOG4J_FILE = "log4j.properties";
     private String conversionNumber;
     private String languageConvert;
 

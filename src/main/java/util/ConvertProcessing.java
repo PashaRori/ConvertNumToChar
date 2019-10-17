@@ -1,15 +1,15 @@
-package utils;
+package util;
 
 public class ConvertProcessing {
-    private final static String ZEROS = "000";
-    private final static String EMPTY = "";
-    private final static String STRING = " ";
-    private final static String AND = " and";
-    private final static String ONE = " одна ";
-    private final static String TWO = " две ";
-    private final static String OF = "ов";
-    private final static String A = "а";
-    private final static String I = "и";
+    private static final String ZEROS = "000";
+    private static final String EMPTY = "";
+    private static final String STRING = " ";
+    private static final String AND = " and";
+    private static final String ONE = " одна ";
+    private static final String TWO = " две ";
+    private static final String OF = "ов";
+    private static final String A = "а";
+    private static final String I = "и";
     private static int hundredOfNumber;
     private static int dozenOfNumber;
     private static int unitOfNumber;

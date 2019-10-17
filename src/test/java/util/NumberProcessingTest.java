@@ -1,4 +1,4 @@
-package utils;
+package util;
 
 import org.junit.jupiter.api.Test;
 
@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static utils.NumberProcessing.checkNegativityNumber;
-import static utils.NumberProcessing.numberSegments;
+import static util.NumberProcessing.checkNegativityNumber;
+import static util.NumberProcessing.numberSegments;
 
 class NumberProcessingTest {
     private static final String MINUS_ONE_HUNDRED = "-100";
@@ -19,39 +19,39 @@ class NumberProcessingTest {
     private static final List<String> ONE_TO_SIX_SEGMENT = Arrays.asList("123", "456");
 
     @Test
-    public void compareValueNegativityNumberWithPositivityNumberToEqualsThem() {
+    public void compareConvertedOneHundredAndMinusOneHundred() {
         assertEquals(ONE_HUNDRED, checkNegativityNumber(MINUS_ONE_HUNDRED));
     }
 
     @Test
-    public void compareValuePositivityNumberWithPositivityNumberToEqualsThem() {
+    public void compareConvertedOneHundredAndOneHundred() {
         assertEquals(ONE_HUNDRED, checkNegativityNumber(ONE_HUNDRED));
     }
 
     @Test
-    public void compareValuePositivityNumberWhoMoreLikeOtherNumberToNotEqualsThem() {
+    public void compareConvertedOneHundredAndOneThousand() {
         assertNotEquals(ONE_HUNDRED, checkNegativityNumber(ONE_THOUSAND));
     }
 
     @Test
-    public void checkExceptionValueWithNullForCheckNegativity() {
+    public void checkNullPointerExceptionInCheckNegativity() {
         assertThrows(NullPointerException.class, () -> {
             checkNegativityNumber(NULL);
         });
     }
 
     @Test
-    public void compareValueInputNumberWithClassesArrayToEqualsThem() {
+    public void compareConvertedOneToNineAndOneToNineSegment() {
         assertEquals(ONE_TO_NINE_SEGMENT, numberSegments(ONE_TO_NINE));
     }
 
     @Test
-    public void compareValueInputNumberWithClassesArrayToNotEqualsThem() {
+    public void compareConvertedOneToNineAndOneToSixSegment() {
         assertNotEquals(ONE_TO_SIX_SEGMENT, numberSegments(ONE_TO_NINE));
     }
 
     @Test
-    public void checkExceptionValueWithNullForSegments() {
+    public void checkNullPointerExceptionInNumberSegments() {
         assertThrows(NullPointerException.class, () -> {
             numberSegments(NULL);
         });

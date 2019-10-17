@@ -1,12 +1,11 @@
 package model;
 
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ConvertNumberToRussianWordJunitTest {
+class ConvertNumberToRussianWord {
     private static final String LANGUAGE = "Rus";
     private static final String ONE_HUNDRED = "100";
     private static final String ONE_HUNDRED_WORD = "сто";
@@ -26,7 +25,7 @@ class ConvertNumberToRussianWordJunitTest {
     private static ConvertNumberToWord convertOutOfExcelDirectory;
 
     @BeforeAll
-    public static void createMemoryToData() {
+    public static void createMemoryToClass() {
         convertedOneHundred = new ConvertNumberToWord(ONE_HUNDRED, LANGUAGE);
         convertedTen = new ConvertNumberToWord(TEN, LANGUAGE);
         convertOneHundredWithZerosAtBegin = new ConvertNumberToWord(ONE_HUNDRED_WITH_ZEROS_AT_BEGIN, LANGUAGE);

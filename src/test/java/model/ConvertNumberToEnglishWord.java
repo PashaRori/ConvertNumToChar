@@ -26,7 +26,7 @@ class ConvertNumberToEnglishWord {
     private static ConvertNumberToWord convertOutOfExcelDirectory;
 
     @BeforeAll
-    public static void createMemoryToData() {//
+    public static void createMemoryClass() {
         convertedOneHundred = new ConvertNumberToWord(ONE_HUNDRED, LANGUAGE);
         convertedTen = new ConvertNumberToWord(TEN, LANGUAGE);
         convertOneHundredWithZerosAtBegin = new ConvertNumberToWord(ONE_HUNDRED_WITH_ZEROS_AT_BEGIN, LANGUAGE);

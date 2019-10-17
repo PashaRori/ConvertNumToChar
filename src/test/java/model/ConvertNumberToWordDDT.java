@@ -5,7 +5,7 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import utils.ExcelOpen;
+import util.ExcelOpen;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -14,9 +14,9 @@ import java.util.Objects;
 
 import static org.testng.Assert.assertEquals;
 
-public class ConvertNumberToWordDDTTestTEst {
+public class ConvertNumberToWordDDT {
 
-    private final static Logger LOGGER = Logger.getLogger(ConvertNumberToWordDDTTestTEst.class);
+    private static final Logger LOGGER = Logger.getLogger(ConvertNumberToWordDDT.class);
 
     @DataProvider
     public Object[][] getValuesFromRussianExcel() {
@@ -85,7 +85,7 @@ public class ConvertNumberToWordDDTTestTEst {
 
     @Test(dataProvider = "getValuesFromEnglishExcel")
     public void compareNumberConvertedToWordsAndWordsOnEnglish(String numberConvertedToWords, String referenceWords) {
-        ConvertNumberToWord convertNumberToWord = new ConvertNumberToWord(numberConvertedToWords, "Eng");
+        ConvertNumberToWord convertNumberToWord = new ConvertNumberToWord(numberConvertedToWords, "Rus");
         String convertedValueOfNumberToWords = convertNumberToWord.createFinalWord();
         assertEquals(referenceWords, convertedValueOfNumberToWords);
     }
